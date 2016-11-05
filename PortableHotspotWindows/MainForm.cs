@@ -21,15 +21,7 @@ namespace PortableHotspotWindows
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            NetworkInfo = Hotspot.CheckNetwork();
-            InformationTextBox.AppendText(NetworkInfo.NetworkStatus + " ");
-            InformationTextBox.AppendText(NetworkInfo.SSID + " ");
-            InformationTextBox.AppendText(NetworkInfo.NumOfClients + " ");
-            InformationTextBox.AppendText(NetworkInfo.Key + " ");
-            foreach(String client in NetworkInfo.ConnectedClients)
-            {
-                InformationTextBox.AppendText(client + " ");
-            }
+            NetworkInfo = Hotspot.GetNetworkInfo();
             populateConnections();
         }
 

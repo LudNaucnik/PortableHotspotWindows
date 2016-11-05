@@ -96,7 +96,7 @@ namespace PortableHotspotWindows
             Execute(ps);
         }
 
-        public NetworkInfoClass CheckNetwork()
+        public NetworkInfoClass GetNetworkInfo()
         {
             NetworkInfoClass Info = new NetworkInfoClass();
             ps.Arguments = "wlan show hostednetwork";
@@ -127,7 +127,14 @@ namespace PortableHotspotWindows
             }
             try
             {
-                Match Clients = Regex.Match(Message, @"([0-9a-fA-F]:?){12}");
+                MatchCollection Clients = Regex.Matches(Message, @"([0-9a-f]{2}(?::[0-9a-f]{2}){5})");
+                foreach (Match ClientMAC in Clients)
+                {
+                    foreach (Capture CaptureMAC in ClientMAC.Captures)
+                    {
+                        Info.ConnectedClients.Add(CaptureMAC.Value);
+                    }
+                }
             }
             catch(Exception)
             {

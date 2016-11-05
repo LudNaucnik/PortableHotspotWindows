@@ -12,6 +12,7 @@ namespace PortableHotspotWindows
         public String SSID { get; set; }
         public String NumOfClients { get; set; }
         public String Key { get; set; }
-        public List<String> ConnectedClients { get; set; }
+        //First String is the network MAC Adress
+        public List<String> ConnectedClients = new List<String>();
     }
 }
