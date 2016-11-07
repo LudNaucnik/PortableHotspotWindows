@@ -9,9 +9,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PortableHotspotWindows
-{
+{    
     public partial class MainForm : Form
     {
+        SerialOperations.Operations SOperations = new SerialOperations.Operations();
         HotspotClass Hotspot = new HotspotClass();
         NetworkInfoClass NetworkInfo = new NetworkInfoClass();
         public MainForm()
