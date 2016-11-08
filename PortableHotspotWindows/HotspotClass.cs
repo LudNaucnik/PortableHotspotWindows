@@ -85,9 +85,9 @@ namespace PortableHotspotWindows
             ps.Arguments = "wlan start hosted network";
             Execute(ps);
         }
-        public void Create(string ssid, string key)
+        public void Create(String ssid, String key)
         {
-            ps.Arguments = String.Format("wlan set hostednetwork mode=allow ssid={0} key={1}", ssid, key);
+            ps.Arguments = @"wlan set hostednetwork mode=allow ssid=" + ssid + " key=" + key;
             Execute(ps);
         }
         public void Stop()
@@ -105,7 +105,7 @@ namespace PortableHotspotWindows
             {
                 Info.NetworkStatus = (Regex.Match(Message, @"[\n\r].*Status                 : \s*([^\n\r]*)")).Groups[1].Value;
             }
-            catch(Exception)
+            catch (Exception)
             {
                 Info.NetworkStatus = null;
             }
@@ -113,7 +113,7 @@ namespace PortableHotspotWindows
             {
                 Info.SSID = (Regex.Match(Message, @"[\n\r].*SSID name              : \s*([^\n\r]*)")).Groups[1].Value.Replace("\"", "");
             }
-            catch(Exception)
+            catch (Exception)
             {
                 Info.SSID = null;
             }
@@ -121,7 +121,7 @@ namespace PortableHotspotWindows
             {
                 Info.NumOfClients = (Regex.Match(Message, @"[\n\r].*Number of clients      : \s*([^\n\r]*)")).Groups[1].Value;
             }
-            catch(Exception)
+            catch (Exception)
             {
                 Info.NumOfClients = null;
             }
@@ -136,7 +136,7 @@ namespace PortableHotspotWindows
                     }
                 }
             }
-            catch(Exception)
+            catch (Exception)
             {
                 Info.ConnectedClients = null;
             }
@@ -147,7 +147,7 @@ namespace PortableHotspotWindows
             {
                 Info.Key = (Regex.Match(Message, @"[\n\r].*User security key      : \s*([^\n\r]*)")).Groups[1].Value;
             }
-            catch(Exception)
+            catch (Exception)
             {
                 Info.Key = null;
             }

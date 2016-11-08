@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -39,6 +40,7 @@ namespace PortableHotspotWindows
             {
                 Hotspot.ShareInternet(FromNetworkListComboBox.SelectedItem.ToString(), ToNetworkListComboBox.SelectedItem.ToString(), true);
                 InformationTextBox.AppendText(Hotspot.Message);
+                AutoScrollTextArea();
             }
             catch (Exception ex)
             {
@@ -48,10 +50,30 @@ namespace PortableHotspotWindows
 
         private void SetButton_Click(object sender, EventArgs e)
         {
-            Hotspot.Create(SSIDTextBox.Text, KeyTextBox.Text);
-            Hotspot.Start();
-            populateConnections();
-            InformationTextBox.AppendText(Hotspot.Message);
+            if (SSIDTextBox.Text.Length < 4 || SSIDTextBox.Text.Length > 16)
+            {
+                MessageBox.Show("SSID must between 4 and 16 characters", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                SSIDTextBox.Text = null;
+            }
+            else if (KeyTextBox.Text.Length < 8 || KeyTextBox.Text.Length > 63)
+            {
+                MessageBox.Show("Key must between 8 and 63 characters", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                KeyTextBox.Text = null;
+            }
+            else
+            {
+                Hotspot.Create(Regex.Replace(SSIDTextBox.Text, @"\s+", ""), KeyTextBox.Text);
+                Hotspot.Start();
+                populateConnections();
+                InformationTextBox.AppendText(Hotspot.Message);
+                AutoScrollTextArea();
+            }
+        }
+
+        private void AutoScrollTextArea()
+        {
+            InformationTextBox.SelectionStart = InformationTextBox.Text.Length;
+            InformationTextBox.ScrollToCaret();
         }
     }
 }
