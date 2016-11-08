@@ -45,5 +45,12 @@ namespace PortableHotspotWindows
             populateConnections();
             InformationTextBox.AppendText(Hotspot.Message);
         }
+
+        private void setNetworkButton_Click(object sender, EventArgs e)
+        {
+            SetNetworkForm Form = new SetNetworkForm();
+            Form.ShowDialog();
+            NetworkInfo = Hotspot.GetNetworkInfo();
+        }
     }
 }

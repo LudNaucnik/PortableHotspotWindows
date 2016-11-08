@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.ShareInternetButton = new System.Windows.Forms.Button();
-            this.NetworkListComboBox = new System.Windows.Forms.ComboBox();
+            this.ToNetworkListComboBox = new System.Windows.Forms.ComboBox();
             this.InformationTextBox = new System.Windows.Forms.RichTextBox();
             this.KeyTextBox = new System.Windows.Forms.TextBox();
             this.SSIDTextBox = new System.Windows.Forms.TextBox();
             this.KeyLabel = new System.Windows.Forms.Label();
             this.SSIDLabel = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.FromNetworkListComboBox = new System.Windows.Forms.ComboBox();
             this.SetButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -51,15 +51,16 @@
             this.ShareInternetButton.TabIndex = 5;
             this.ShareInternetButton.Text = "Share Internet ";
             this.ShareInternetButton.UseVisualStyleBackColor = true;
+            this.ShareInternetButton.Click += new System.EventHandler(this.ShareInternetButton_Click);
             // 
-            // NetworkListComboBox
+            // ToNetworkListComboBox
             // 
-            this.NetworkListComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.NetworkListComboBox.FormattingEnabled = true;
-            this.NetworkListComboBox.Location = new System.Drawing.Point(96, 185);
-            this.NetworkListComboBox.Name = "NetworkListComboBox";
-            this.NetworkListComboBox.Size = new System.Drawing.Size(220, 26);
-            this.NetworkListComboBox.TabIndex = 4;
+            this.ToNetworkListComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.ToNetworkListComboBox.FormattingEnabled = true;
+            this.ToNetworkListComboBox.Location = new System.Drawing.Point(96, 185);
+            this.ToNetworkListComboBox.Name = "ToNetworkListComboBox";
+            this.ToNetworkListComboBox.Size = new System.Drawing.Size(220, 26);
+            this.ToNetworkListComboBox.TabIndex = 4;
             // 
             // InformationTextBox
             // 
@@ -102,14 +103,14 @@
             this.SSIDLabel.TabIndex = 12;
             this.SSIDLabel.Text = "SSID";
             // 
-            // comboBox1
+            // FromNetworkListComboBox
             // 
-            this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(96, 153);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(220, 26);
-            this.comboBox1.TabIndex = 3;
+            this.FromNetworkListComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.FromNetworkListComboBox.FormattingEnabled = true;
+            this.FromNetworkListComboBox.Location = new System.Drawing.Point(96, 153);
+            this.FromNetworkListComboBox.Name = "FromNetworkListComboBox";
+            this.FromNetworkListComboBox.Size = new System.Drawing.Size(220, 26);
+            this.FromNetworkListComboBox.TabIndex = 3;
             // 
             // SetButton
             // 
@@ -119,6 +120,7 @@
             this.SetButton.TabIndex = 14;
             this.SetButton.Text = "Set";
             this.SetButton.UseVisualStyleBackColor = true;
+            this.SetButton.Click += new System.EventHandler(this.SetButton_Click);
             // 
             // label1
             // 
@@ -132,7 +134,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(137, 20);
+            this.label2.Location = new System.Drawing.Point(137, 18);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(93, 18);
             this.label2.TabIndex = 16;
@@ -166,9 +168,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.SetButton);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.FromNetworkListComboBox);
             this.Controls.Add(this.ShareInternetButton);
-            this.Controls.Add(this.NetworkListComboBox);
+            this.Controls.Add(this.ToNetworkListComboBox);
             this.Controls.Add(this.InformationTextBox);
             this.Controls.Add(this.KeyTextBox);
             this.Controls.Add(this.SSIDTextBox);
@@ -177,7 +179,9 @@
             this.Font = new System.Drawing.Font("Arial", 12F);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "SetNetworkForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Set Hotspot";
+            this.Load += new System.EventHandler(this.SetNetworkForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -186,13 +190,13 @@
         #endregion
 
         private System.Windows.Forms.Button ShareInternetButton;
-        private System.Windows.Forms.ComboBox NetworkListComboBox;
+        private System.Windows.Forms.ComboBox ToNetworkListComboBox;
         private System.Windows.Forms.RichTextBox InformationTextBox;
         private System.Windows.Forms.TextBox KeyTextBox;
         private System.Windows.Forms.TextBox SSIDTextBox;
         private System.Windows.Forms.Label KeyLabel;
         private System.Windows.Forms.Label SSIDLabel;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox FromNetworkListComboBox;
         private System.Windows.Forms.Button SetButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;

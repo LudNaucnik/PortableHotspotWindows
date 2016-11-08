@@ -31,7 +31,7 @@
             this.StartNetworkButton = new System.Windows.Forms.Button();
             this.MainMenuStripMenu = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.setNetworkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.setNetworkButton = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SSIDLabel = new System.Windows.Forms.Label();
@@ -72,16 +72,17 @@
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.setNetworkToolStripMenuItem});
+            this.setNetworkButton});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
-            // setNetworkToolStripMenuItem
+            // setNetworkButton
             // 
-            this.setNetworkToolStripMenuItem.Name = "setNetworkToolStripMenuItem";
-            this.setNetworkToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.setNetworkToolStripMenuItem.Text = "Set Network";
+            this.setNetworkButton.Name = "setNetworkButton";
+            this.setNetworkButton.Size = new System.Drawing.Size(152, 22);
+            this.setNetworkButton.Text = "Set Network";
+            this.setNetworkButton.Click += new System.EventHandler(this.setNetworkButton_Click);
             // 
             // aboutToolStripMenuItem
             // 
@@ -215,7 +216,7 @@
         private System.Windows.Forms.Button StartNetworkButton;
         private System.Windows.Forms.MenuStrip MainMenuStripMenu;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem setNetworkToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem setNetworkButton;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.Label SSIDLabel;
