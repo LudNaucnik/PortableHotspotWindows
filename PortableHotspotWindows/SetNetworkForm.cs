@@ -25,6 +25,7 @@ namespace PortableHotspotWindows
         {
             NetworkInfo = Hotspot.GetNetworkInfo();
             populateConnections();
+            UpdateTextBox();
         }
 
         public void populateConnections()
@@ -74,6 +75,22 @@ namespace PortableHotspotWindows
         {
             InformationTextBox.SelectionStart = InformationTextBox.Text.Length;
             InformationTextBox.ScrollToCaret();
+        }
+
+        private void UpdateTextBox()
+        {
+            SSIDTextBox.Text = NetworkInfo.SSID;
+            KeyTextBox.Text = NetworkInfo.Key;
+        }
+
+        private void FromNetworkListComboBox_Click(object sender, EventArgs e)
+        {
+            FromNetworkListComboBox.DroppedDown = true;
+        }
+
+        private void ToNetworkListComboBox_Click(object sender, EventArgs e)
+        {
+            ToNetworkListComboBox.DroppedDown = true;
         }
     }
 }

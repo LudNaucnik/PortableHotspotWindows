@@ -56,11 +56,13 @@
             // ToNetworkListComboBox
             // 
             this.ToNetworkListComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.ToNetworkListComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.ToNetworkListComboBox.FormattingEnabled = true;
             this.ToNetworkListComboBox.Location = new System.Drawing.Point(96, 185);
             this.ToNetworkListComboBox.Name = "ToNetworkListComboBox";
             this.ToNetworkListComboBox.Size = new System.Drawing.Size(220, 26);
             this.ToNetworkListComboBox.TabIndex = 4;
+            this.ToNetworkListComboBox.Click += new System.EventHandler(this.ToNetworkListComboBox_Click);
             // 
             // InformationTextBox
             // 
@@ -106,11 +108,13 @@
             // FromNetworkListComboBox
             // 
             this.FromNetworkListComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.FromNetworkListComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.FromNetworkListComboBox.FormattingEnabled = true;
             this.FromNetworkListComboBox.Location = new System.Drawing.Point(96, 153);
             this.FromNetworkListComboBox.Name = "FromNetworkListComboBox";
             this.FromNetworkListComboBox.Size = new System.Drawing.Size(220, 26);
             this.FromNetworkListComboBox.TabIndex = 3;
+            this.FromNetworkListComboBox.Click += new System.EventHandler(this.FromNetworkListComboBox_Click);
             // 
             // SetButton
             // 
