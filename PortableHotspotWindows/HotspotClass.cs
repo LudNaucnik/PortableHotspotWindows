@@ -98,6 +98,7 @@ namespace PortableHotspotWindows
 
         public NetworkInfoClass GetNetworkInfo()
         {
+            Message = "";
             NetworkInfoClass Info = new NetworkInfoClass();
             ps.Arguments = "wlan show hostednetwork";
             Execute(ps);
@@ -123,7 +124,7 @@ namespace PortableHotspotWindows
             }
             catch (Exception)
             {
-                Info.NumOfClients = null;
+                Info.NumOfClients = "0";
             }
             try
             {
@@ -140,7 +141,7 @@ namespace PortableHotspotWindows
             {
                 Info.ConnectedClients = null;
             }
-
+            Message = "";
             ps.Arguments = "wlan show  hostednetwork setting=security";
             Execute(ps);
             try

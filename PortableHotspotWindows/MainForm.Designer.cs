@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.MainMenuStripMenu = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setNetworkButton = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,6 +43,10 @@
             this.InformationTextBox = new System.Windows.Forms.RichTextBox();
             this.ShowPassButton = new System.Windows.Forms.Button();
             this.StartStopButton = new System.Windows.Forms.Button();
+            this.ConnectedClientsListBox = new System.Windows.Forms.ListBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.NumClientsLabel = new System.Windows.Forms.Label();
+            this.ConnectedUsersTimer = new System.Windows.Forms.Timer(this.components);
             this.MainMenuStripMenu.SuspendLayout();
             this.MainStatusStripMenu.SuspendLayout();
             this.SuspendLayout();
@@ -54,7 +59,7 @@
             this.exitToolStripMenuItem});
             this.MainMenuStripMenu.Location = new System.Drawing.Point(0, 0);
             this.MainMenuStripMenu.Name = "MainMenuStripMenu";
-            this.MainMenuStripMenu.Size = new System.Drawing.Size(302, 24);
+            this.MainMenuStripMenu.Size = new System.Drawing.Size(563, 24);
             this.MainMenuStripMenu.TabIndex = 1;
             // 
             // fileToolStripMenuItem
@@ -125,7 +130,7 @@
             this.StatusConnectionLabel});
             this.MainStatusStripMenu.Location = new System.Drawing.Point(0, 339);
             this.MainStatusStripMenu.Name = "MainStatusStripMenu";
-            this.MainStatusStripMenu.Size = new System.Drawing.Size(302, 22);
+            this.MainStatusStripMenu.Size = new System.Drawing.Size(563, 22);
             this.MainStatusStripMenu.TabIndex = 6;
             this.MainStatusStripMenu.Text = "statusStrip1";
             // 
@@ -140,7 +145,7 @@
             this.InformationTextBox.Location = new System.Drawing.Point(20, 222);
             this.InformationTextBox.Name = "InformationTextBox";
             this.InformationTextBox.ReadOnly = true;
-            this.InformationTextBox.Size = new System.Drawing.Size(257, 96);
+            this.InformationTextBox.Size = new System.Drawing.Size(513, 96);
             this.InformationTextBox.TabIndex = 7;
             this.InformationTextBox.Text = "";
             // 
@@ -158,18 +163,54 @@
             // 
             // StartStopButton
             // 
-            this.StartStopButton.Location = new System.Drawing.Point(74, 129);
+            this.StartStopButton.Location = new System.Drawing.Point(72, 129);
             this.StartStopButton.Name = "StartStopButton";
-            this.StartStopButton.Size = new System.Drawing.Size(161, 40);
+            this.StartStopButton.Size = new System.Drawing.Size(180, 70);
             this.StartStopButton.TabIndex = 21;
             this.StartStopButton.Text = "Start Hotspot";
             this.StartStopButton.UseVisualStyleBackColor = true;
+            this.StartStopButton.Click += new System.EventHandler(this.StartStopButton_Click);
+            // 
+            // ConnectedClientsListBox
+            // 
+            this.ConnectedClientsListBox.FormattingEnabled = true;
+            this.ConnectedClientsListBox.ItemHeight = 18;
+            this.ConnectedClientsListBox.Location = new System.Drawing.Point(308, 87);
+            this.ConnectedClientsListBox.Name = "ConnectedClientsListBox";
+            this.ConnectedClientsListBox.Size = new System.Drawing.Size(225, 112);
+            this.ConnectedClientsListBox.TabIndex = 22;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(308, 50);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(139, 18);
+            this.label1.TabIndex = 23;
+            this.label1.Text = "Number Of Clients:";
+            // 
+            // NumClientsLabel
+            // 
+            this.NumClientsLabel.AutoSize = true;
+            this.NumClientsLabel.Location = new System.Drawing.Point(453, 50);
+            this.NumClientsLabel.Name = "NumClientsLabel";
+            this.NumClientsLabel.Size = new System.Drawing.Size(17, 18);
+            this.NumClientsLabel.TabIndex = 24;
+            this.NumClientsLabel.Text = "0";
+            // 
+            // ConnectedUsersTimer
+            // 
+            this.ConnectedUsersTimer.Interval = 1000;
+            this.ConnectedUsersTimer.Tick += new System.EventHandler(this.ConnectedUsersTimer_Tick);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(302, 361);
+            this.ClientSize = new System.Drawing.Size(563, 361);
+            this.Controls.Add(this.NumClientsLabel);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.ConnectedClientsListBox);
             this.Controls.Add(this.StartStopButton);
             this.Controls.Add(this.ShowPassButton);
             this.Controls.Add(this.InformationTextBox);
@@ -208,6 +249,10 @@
         private System.Windows.Forms.RichTextBox InformationTextBox;
         private System.Windows.Forms.Button ShowPassButton;
         private System.Windows.Forms.Button StartStopButton;
+        private System.Windows.Forms.ListBox ConnectedClientsListBox;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label NumClientsLabel;
+        private System.Windows.Forms.Timer ConnectedUsersTimer;
     }
 }
 
