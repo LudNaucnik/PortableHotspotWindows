@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,6 +17,12 @@ namespace PortableHotspotWindows
         HotspotClass Hotspot = new HotspotClass();
         NetworkInfoClass NetworkInfo = new NetworkInfoClass();
         Boolean IsNetworkStarted;
+        public const uint ES_CONTINUOUS = 0x80000000;
+        public const uint ES_SYSTEM_REQUIRED = 0x00000001;
+        public const uint ES_DISPLAY_REQUIRED = 0x00000002;
+
+        [DllImport("kernel32.dll", SetLastError = true)]
+        public static extern uint SetThreadExecutionState([In] uint esFlags);
         public MainForm()
         {
             InitializeComponent();
@@ -80,11 +87,13 @@ namespace PortableHotspotWindows
             {
                 Hotspot.Start();
                 ConnectedUsersTimer.Start();
+                SetThreadExecutionState(ES_CONTINUOUS | ES_SYSTEM_REQUIRED);
             }
             else
             {
                 Hotspot.Stop();
                 ConnectedUsersTimer.Stop();
+                SetThreadExecutionState(ES_CONTINUOUS);
             }
             UpdateLabelsText();
             InformationTextBox.AppendText(Hotspot.Message);
@@ -170,5 +179,7 @@ namespace PortableHotspotWindows
                 e.Cancel = true;
             }
         }
+
+
     }
 }

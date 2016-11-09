@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SetNetworkForm));
             this.ShareInternetButton = new System.Windows.Forms.Button();
             this.ToNetworkListComboBox = new System.Windows.Forms.ComboBox();
             this.InformationTextBox = new System.Windows.Forms.RichTextBox();
@@ -196,6 +197,7 @@
             this.Controls.Add(this.KeyLabel);
             this.Controls.Add(this.SSIDLabel);
             this.Font = new System.Drawing.Font("Arial", 12F);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "SetNetworkForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

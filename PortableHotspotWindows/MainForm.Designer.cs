@@ -232,6 +232,7 @@
             this.Controls.Add(this.SSIDLabel);
             this.Controls.Add(this.MainMenuStripMenu);
             this.Font = new System.Drawing.Font("Arial", 12F);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
