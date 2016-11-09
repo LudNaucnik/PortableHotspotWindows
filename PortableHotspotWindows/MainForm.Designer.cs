@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.MainMenuStripMenu = new System.Windows.Forms.MenuStrip();
             this.SetNetworkButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.RegisterButton = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExitButton = new System.Windows.Forms.ToolStripMenuItem();
             this.SSIDLabel = new System.Windows.Forms.Label();
@@ -47,7 +48,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.NumClientsLabel = new System.Windows.Forms.Label();
             this.ConnectedUsersTimer = new System.Windows.Forms.Timer(this.components);
-            this.RegisterButton = new System.Windows.Forms.ToolStripMenuItem();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.MainMenuStripMenu.SuspendLayout();
             this.MainStatusStripMenu.SuspendLayout();
@@ -72,6 +72,12 @@
             this.SetNetworkButton.Text = "Set Network";
             this.SetNetworkButton.Click += new System.EventHandler(this.setNetworkButton_Click);
             // 
+            // RegisterButton
+            // 
+            this.RegisterButton.Name = "RegisterButton";
+            this.RegisterButton.Size = new System.Drawing.Size(61, 20);
+            this.RegisterButton.Text = "Register";
+            // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
@@ -83,6 +89,7 @@
             this.ExitButton.Name = "ExitButton";
             this.ExitButton.Size = new System.Drawing.Size(37, 20);
             this.ExitButton.Text = "Exit";
+            this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
             // 
             // SSIDLabel
             // 
@@ -198,12 +205,6 @@
             this.ConnectedUsersTimer.Interval = 1000;
             this.ConnectedUsersTimer.Tick += new System.EventHandler(this.ConnectedUsersTimer_Tick);
             // 
-            // RegisterButton
-            // 
-            this.RegisterButton.Name = "RegisterButton";
-            this.RegisterButton.Size = new System.Drawing.Size(61, 20);
-            this.RegisterButton.Text = "Register";
-            // 
             // notifyIcon1
             // 
             this.notifyIcon1.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Warning;
@@ -235,6 +236,7 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Portable Hotspot Windows";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.Resize += new System.EventHandler(this.MainForm_Resize);
             this.MainMenuStripMenu.ResumeLayout(false);

@@ -25,6 +25,34 @@ namespace PortableHotspotWindows
         {
             UpdateLabelsText();
             ConnectedUsersTimer.Start();
+            ContextMenu NotificationMenu = new ContextMenu();
+            MenuItem Item1 = new MenuItem
+            {
+                Index = 0,
+                Text = "Show Program"
+            };
+            Item1.Click += Item1_Click;
+            MenuItem Item2 = new MenuItem
+            {
+                Index = 1,
+                Text = "Exit"
+            };
+            Item2.Click += Item2_Click;
+            NotificationMenu.MenuItems.Add(Item1);
+            NotificationMenu.MenuItems.Add(Item2);
+            notifyIcon1.ContextMenu = NotificationMenu;
+        }
+
+        private void Item2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Item1_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Normal;
+            this.ShowInTaskbar = true;
+            notifyIcon1.Visible = false;
         }
 
         private void setNetworkButton_Click(object sender, EventArgs e)
@@ -122,6 +150,25 @@ namespace PortableHotspotWindows
             this.WindowState = FormWindowState.Normal;
             this.ShowInTaskbar = true;
             notifyIcon1.Visible = false;
+        }
+
+        private void ExitButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are You Sure?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                Hotspot.Stop();
+                Environment.Exit(0);
+            }
+            else
+            {
+                e.Cancel = true;
+            }
         }
     }
 }
