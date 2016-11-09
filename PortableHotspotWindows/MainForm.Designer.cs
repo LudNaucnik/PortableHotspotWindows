@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.StartNetworkButton = new System.Windows.Forms.Button();
             this.MainMenuStripMenu = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setNetworkButton = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,22 +40,11 @@
             this.MainStatusStripMenu = new System.Windows.Forms.StatusStrip();
             this.StatusConnectionLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.InformationTextBox = new System.Windows.Forms.RichTextBox();
-            this.NetworkListComboBox = new System.Windows.Forms.ComboBox();
-            this.ShareInternetButton = new System.Windows.Forms.Button();
-            this.StopNetworkButton = new System.Windows.Forms.Button();
+            this.ShowPassButton = new System.Windows.Forms.Button();
+            this.StartStopButton = new System.Windows.Forms.Button();
             this.MainMenuStripMenu.SuspendLayout();
             this.MainStatusStripMenu.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // StartNetworkButton
-            // 
-            this.StartNetworkButton.Location = new System.Drawing.Point(51, 118);
-            this.StartNetworkButton.Name = "StartNetworkButton";
-            this.StartNetworkButton.Size = new System.Drawing.Size(90, 30);
-            this.StartNetworkButton.TabIndex = 0;
-            this.StartNetworkButton.Text = "Start";
-            this.StartNetworkButton.UseVisualStyleBackColor = true;
-            this.StartNetworkButton.Click += new System.EventHandler(this.StartNetworkButton_Click);
             // 
             // MainMenuStripMenu
             // 
@@ -80,7 +68,7 @@
             // setNetworkButton
             // 
             this.setNetworkButton.Name = "setNetworkButton";
-            this.setNetworkButton.Size = new System.Drawing.Size(152, 22);
+            this.setNetworkButton.Size = new System.Drawing.Size(138, 22);
             this.setNetworkButton.Text = "Set Network";
             this.setNetworkButton.Click += new System.EventHandler(this.setNetworkButton_Click);
             // 
@@ -118,6 +106,7 @@
             // 
             this.SSIDTextBox.Location = new System.Drawing.Point(101, 38);
             this.SSIDTextBox.Name = "SSIDTextBox";
+            this.SSIDTextBox.ReadOnly = true;
             this.SSIDTextBox.Size = new System.Drawing.Size(176, 26);
             this.SSIDTextBox.TabIndex = 4;
             // 
@@ -125,6 +114,8 @@
             // 
             this.KeyTextBox.Location = new System.Drawing.Point(101, 77);
             this.KeyTextBox.Name = "KeyTextBox";
+            this.KeyTextBox.PasswordChar = '●';
+            this.KeyTextBox.ReadOnly = true;
             this.KeyTextBox.Size = new System.Drawing.Size(176, 26);
             this.KeyTextBox.TabIndex = 5;
             // 
@@ -153,49 +144,40 @@
             this.InformationTextBox.TabIndex = 7;
             this.InformationTextBox.Text = "";
             // 
-            // NetworkListComboBox
+            // ShowPassButton
             // 
-            this.NetworkListComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.NetworkListComboBox.FormattingEnabled = true;
-            this.NetworkListComboBox.Location = new System.Drawing.Point(20, 154);
-            this.NetworkListComboBox.Name = "NetworkListComboBox";
-            this.NetworkListComboBox.Size = new System.Drawing.Size(257, 26);
-            this.NetworkListComboBox.TabIndex = 8;
+            this.ShowPassButton.BackgroundImage = global::PortableHotspotWindows.Properties.Resources.showPass;
+            this.ShowPassButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ShowPassButton.Location = new System.Drawing.Point(247, 77);
+            this.ShowPassButton.Name = "ShowPassButton";
+            this.ShowPassButton.Size = new System.Drawing.Size(30, 25);
+            this.ShowPassButton.TabIndex = 20;
+            this.ShowPassButton.UseVisualStyleBackColor = true;
+            this.ShowPassButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ShowPassButton_MouseDown);
+            this.ShowPassButton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ShowPassButton_MouseUp);
             // 
-            // ShareInternetButton
+            // StartStopButton
             // 
-            this.ShareInternetButton.Location = new System.Drawing.Point(20, 186);
-            this.ShareInternetButton.Name = "ShareInternetButton";
-            this.ShareInternetButton.Size = new System.Drawing.Size(257, 30);
-            this.ShareInternetButton.TabIndex = 9;
-            this.ShareInternetButton.Text = "Share Internet ";
-            this.ShareInternetButton.UseVisualStyleBackColor = true;
-            this.ShareInternetButton.Click += new System.EventHandler(this.ShareInternetButton_Click);
-            // 
-            // StopNetworkButton
-            // 
-            this.StopNetworkButton.Location = new System.Drawing.Point(165, 118);
-            this.StopNetworkButton.Name = "StopNetworkButton";
-            this.StopNetworkButton.Size = new System.Drawing.Size(100, 30);
-            this.StopNetworkButton.TabIndex = 10;
-            this.StopNetworkButton.Text = "Stop";
-            this.StopNetworkButton.UseVisualStyleBackColor = true;
+            this.StartStopButton.Location = new System.Drawing.Point(74, 129);
+            this.StartStopButton.Name = "StartStopButton";
+            this.StartStopButton.Size = new System.Drawing.Size(161, 40);
+            this.StartStopButton.TabIndex = 21;
+            this.StartStopButton.Text = "Start Hotspot";
+            this.StartStopButton.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(302, 361);
-            this.Controls.Add(this.StopNetworkButton);
-            this.Controls.Add(this.ShareInternetButton);
-            this.Controls.Add(this.NetworkListComboBox);
+            this.Controls.Add(this.StartStopButton);
+            this.Controls.Add(this.ShowPassButton);
             this.Controls.Add(this.InformationTextBox);
             this.Controls.Add(this.MainStatusStripMenu);
             this.Controls.Add(this.KeyTextBox);
             this.Controls.Add(this.SSIDTextBox);
             this.Controls.Add(this.KeyLabel);
             this.Controls.Add(this.SSIDLabel);
-            this.Controls.Add(this.StartNetworkButton);
             this.Controls.Add(this.MainMenuStripMenu);
             this.Font = new System.Drawing.Font("Arial", 12F);
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -212,8 +194,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button StartNetworkButton;
         private System.Windows.Forms.MenuStrip MainMenuStripMenu;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem setNetworkButton;
@@ -226,9 +206,8 @@
         private System.Windows.Forms.StatusStrip MainStatusStripMenu;
         private System.Windows.Forms.ToolStripStatusLabel StatusConnectionLabel;
         private System.Windows.Forms.RichTextBox InformationTextBox;
-        private System.Windows.Forms.ComboBox NetworkListComboBox;
-        private System.Windows.Forms.Button ShareInternetButton;
-        private System.Windows.Forms.Button StopNetworkButton;
+        private System.Windows.Forms.Button ShowPassButton;
+        private System.Windows.Forms.Button StartStopButton;
     }
 }
 

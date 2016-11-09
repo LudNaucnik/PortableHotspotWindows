@@ -23,27 +23,6 @@ namespace PortableHotspotWindows
         private void MainForm_Load(object sender, EventArgs e)
         {
             NetworkInfo = Hotspot.GetNetworkInfo();
-            populateConnections();
-        }
-
-        public void populateConnections()
-        {
-            NetworkListComboBox.Items.Clear();
-            Hotspot.GetConnections().ForEach(Connection => { NetworkListComboBox.Items.Add(Connection); });
-        }
-
-        private void ShareInternetButton_Click(object sender, EventArgs e)
-        {
-            Hotspot.ShareInternet("Ethernet", NetworkListComboBox.SelectedItem.ToString(), true);
-            InformationTextBox.AppendText(Hotspot.Message);
-        }
-
-        private void StartNetworkButton_Click(object sender, EventArgs e)
-        {
-            Hotspot.Create(SSIDTextBox.Text, KeyTextBox.Text);
-            Hotspot.Start();
-            populateConnections();
-            InformationTextBox.AppendText(Hotspot.Message);
         }
 
         private void setNetworkButton_Click(object sender, EventArgs e)
@@ -51,6 +30,16 @@ namespace PortableHotspotWindows
             SetNetworkForm Form = new SetNetworkForm();
             Form.ShowDialog();
             NetworkInfo = Hotspot.GetNetworkInfo();
+        }
+
+        private void ShowPassButton_MouseDown(object sender, MouseEventArgs e)
+        {
+            KeyTextBox.PasswordChar = '\0';
+        }
+
+        private void ShowPassButton_MouseUp(object sender, MouseEventArgs e)
+        {
+            KeyTextBox.PasswordChar = '●';
         }
     }
 }

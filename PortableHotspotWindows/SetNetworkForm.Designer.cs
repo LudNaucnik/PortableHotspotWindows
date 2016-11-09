@@ -41,6 +41,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.ShowPassButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ShareInternetButton
@@ -77,6 +78,7 @@
             // 
             this.KeyTextBox.Location = new System.Drawing.Point(96, 83);
             this.KeyTextBox.Name = "KeyTextBox";
+            this.KeyTextBox.PasswordChar = '●';
             this.KeyTextBox.Size = new System.Drawing.Size(220, 26);
             this.KeyTextBox.TabIndex = 1;
             // 
@@ -162,11 +164,24 @@
             this.label4.TabIndex = 18;
             this.label4.Text = "To";
             // 
+            // ShowPassButton
+            // 
+            this.ShowPassButton.BackgroundImage = global::PortableHotspotWindows.Properties.Resources.showPass;
+            this.ShowPassButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ShowPassButton.Location = new System.Drawing.Point(286, 83);
+            this.ShowPassButton.Name = "ShowPassButton";
+            this.ShowPassButton.Size = new System.Drawing.Size(30, 25);
+            this.ShowPassButton.TabIndex = 19;
+            this.ShowPassButton.UseVisualStyleBackColor = true;
+            this.ShowPassButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ShowPassButton_MouseDown);
+            this.ShowPassButton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ShowPassButton_MouseUp);
+            // 
             // SetNetworkForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(439, 384);
+            this.Controls.Add(this.ShowPassButton);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -206,5 +221,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button ShowPassButton;
     }
 }

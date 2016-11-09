@@ -92,5 +92,16 @@ namespace PortableHotspotWindows
         {
             ToNetworkListComboBox.DroppedDown = true;
         }
+
+        private void ShowPassButton_MouseDown(object sender, MouseEventArgs e)
+        {
+            KeyTextBox.PasswordChar = '\0';
+        }
+
+        private void ShowPassButton_MouseUp(object sender, MouseEventArgs e)
+        {
+            KeyTextBox.PasswordChar = '●';
+            KeyTextBox.Focus();
+        }
     }
 }
