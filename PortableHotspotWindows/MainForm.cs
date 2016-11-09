@@ -30,7 +30,9 @@ namespace PortableHotspotWindows
         private void setNetworkButton_Click(object sender, EventArgs e)
         {
             SetNetworkForm Form = new SetNetworkForm();
+            this.Hide();
             Form.ShowDialog();
+            this.Show();
             UpdateLabelsText();
         }
 
@@ -102,6 +104,24 @@ namespace PortableHotspotWindows
         private void ConnectedUsersTimer_Tick(object sender, EventArgs e)
         {
             UpdateLabelsText();
+        }
+
+        private void MainForm_Resize(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Minimized)
+            {
+                notifyIcon1.Visible = true;
+                notifyIcon1.BalloonTipText = NetworkInfo.SSID + " " + NetworkInfo.NetworkStatus;
+                notifyIcon1.ShowBalloonTip(3000);
+                this.ShowInTaskbar = false;
+            }
+        }
+
+        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            this.WindowState = FormWindowState.Normal;
+            this.ShowInTaskbar = true;
+            notifyIcon1.Visible = false;
         }
     }
 }

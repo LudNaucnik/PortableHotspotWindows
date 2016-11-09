@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.MainMenuStripMenu = new System.Windows.Forms.MenuStrip();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.setNetworkButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.SetNetworkButton = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ExitButton = new System.Windows.Forms.ToolStripMenuItem();
             this.SSIDLabel = new System.Windows.Forms.Label();
             this.KeyLabel = new System.Windows.Forms.Label();
             this.SSIDTextBox = new System.Windows.Forms.TextBox();
@@ -47,6 +47,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.NumClientsLabel = new System.Windows.Forms.Label();
             this.ConnectedUsersTimer = new System.Windows.Forms.Timer(this.components);
+            this.RegisterButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.MainMenuStripMenu.SuspendLayout();
             this.MainStatusStripMenu.SuspendLayout();
             this.SuspendLayout();
@@ -54,28 +56,21 @@
             // MainMenuStripMenu
             // 
             this.MainMenuStripMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem,
+            this.SetNetworkButton,
+            this.RegisterButton,
             this.aboutToolStripMenuItem,
-            this.exitToolStripMenuItem});
+            this.ExitButton});
             this.MainMenuStripMenu.Location = new System.Drawing.Point(0, 0);
             this.MainMenuStripMenu.Name = "MainMenuStripMenu";
             this.MainMenuStripMenu.Size = new System.Drawing.Size(563, 24);
             this.MainMenuStripMenu.TabIndex = 1;
             // 
-            // fileToolStripMenuItem
+            // SetNetworkButton
             // 
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.setNetworkButton});
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "File";
-            // 
-            // setNetworkButton
-            // 
-            this.setNetworkButton.Name = "setNetworkButton";
-            this.setNetworkButton.Size = new System.Drawing.Size(138, 22);
-            this.setNetworkButton.Text = "Set Network";
-            this.setNetworkButton.Click += new System.EventHandler(this.setNetworkButton_Click);
+            this.SetNetworkButton.Name = "SetNetworkButton";
+            this.SetNetworkButton.Size = new System.Drawing.Size(83, 20);
+            this.SetNetworkButton.Text = "Set Network";
+            this.SetNetworkButton.Click += new System.EventHandler(this.setNetworkButton_Click);
             // 
             // aboutToolStripMenuItem
             // 
@@ -83,11 +78,11 @@
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.aboutToolStripMenuItem.Text = "About";
             // 
-            // exitToolStripMenuItem
+            // ExitButton
             // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.exitToolStripMenuItem.Text = "Exit";
+            this.ExitButton.Name = "ExitButton";
+            this.ExitButton.Size = new System.Drawing.Size(37, 20);
+            this.ExitButton.Text = "Exit";
             // 
             // SSIDLabel
             // 
@@ -203,6 +198,21 @@
             this.ConnectedUsersTimer.Interval = 1000;
             this.ConnectedUsersTimer.Tick += new System.EventHandler(this.ConnectedUsersTimer_Tick);
             // 
+            // RegisterButton
+            // 
+            this.RegisterButton.Name = "RegisterButton";
+            this.RegisterButton.Size = new System.Drawing.Size(61, 20);
+            this.RegisterButton.Text = "Register";
+            // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Warning;
+            this.notifyIcon1.BalloonTipTitle = "Information";
+            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
+            this.notifyIcon1.Text = "Portable Hotspot Windows";
+            this.notifyIcon1.Visible = true;
+            this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -223,8 +233,10 @@
             this.Font = new System.Drawing.Font("Arial", 12F);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Portable Hotspot Windows";
             this.Load += new System.EventHandler(this.MainForm_Load);
+            this.Resize += new System.EventHandler(this.MainForm_Resize);
             this.MainMenuStripMenu.ResumeLayout(false);
             this.MainMenuStripMenu.PerformLayout();
             this.MainStatusStripMenu.ResumeLayout(false);
@@ -236,10 +248,9 @@
 
         #endregion
         private System.Windows.Forms.MenuStrip MainMenuStripMenu;
-        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem setNetworkButton;
+        private System.Windows.Forms.ToolStripMenuItem SetNetworkButton;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ExitButton;
         private System.Windows.Forms.Label SSIDLabel;
         private System.Windows.Forms.Label KeyLabel;
         private System.Windows.Forms.TextBox SSIDTextBox;
@@ -253,6 +264,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label NumClientsLabel;
         private System.Windows.Forms.Timer ConnectedUsersTimer;
+        private System.Windows.Forms.ToolStripMenuItem RegisterButton;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
     }
 }
 
