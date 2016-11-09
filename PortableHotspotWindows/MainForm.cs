@@ -171,6 +171,7 @@ namespace PortableHotspotWindows
             DialogResult result = MessageBox.Show("Are You Sure?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
+                SetThreadExecutionState(ES_CONTINUOUS);
                 Hotspot.Stop();
                 Environment.Exit(0);
             }
