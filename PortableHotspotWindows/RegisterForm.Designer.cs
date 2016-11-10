@@ -68,8 +68,9 @@
             this.Controls.Add(this.RegisterTextBox);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Arial", 12F);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "RegisterForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Register";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -14,6 +14,7 @@ namespace PortableHotspotWindows
     public partial class RegisterForm : Form
     {
         Operations opr = new Operations();
+        SerialKeyIOClass IOKey = new SerialKeyIOClass();
         public Boolean ValidationKey { get; set; }
         public RegisterForm()
         {
@@ -23,13 +24,13 @@ namespace PortableHotspotWindows
 
         private void RegisterButton_Click(object sender, EventArgs e)
         {
-            if(RegisterTextBox.Text == null)
+            if (RegisterTextBox.Text == null)
             {
                 MessageBox.Show("Provide Serial Key", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ValidationKey = false;
                 RegisterTextBox.Focus();
             }
-            else if(opr.VerifyCode(RegisterTextBox.Text) == false)
+            else if (opr.VerifyCode(RegisterTextBox.Text) == false)
             {
                 MessageBox.Show("Invalid Serial Key", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ValidationKey = false;
@@ -40,8 +41,7 @@ namespace PortableHotspotWindows
             {
                 MessageBox.Show("valid Serial Key", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ValidationKey = true;
-                RegisterTextBox.Text = null;
-                RegisterTextBox.Focus();
+                IOKey.WriteLicence(RegisterTextBox.Text);
                 this.Close();
             }
         }

@@ -72,6 +72,7 @@
     <Compile Include="RegisterForm.Designer.cs">
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="SerialKeyIOClass.cs" />
     <Compile Include="SetNetworkForm.cs">
       <SubType>Form</SubType>
     </Compile>
