@@ -31,12 +31,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.RegisterTextBox = new System.Windows.Forms.TextBox();
             this.RegisterButton = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(28, 49);
+            this.label1.Location = new System.Drawing.Point(23, 65);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 18);
             this.label1.TabIndex = 0;
@@ -44,14 +45,14 @@
             // 
             // RegisterTextBox
             // 
-            this.RegisterTextBox.Location = new System.Drawing.Point(80, 46);
+            this.RegisterTextBox.Location = new System.Drawing.Point(75, 62);
             this.RegisterTextBox.Name = "RegisterTextBox";
-            this.RegisterTextBox.Size = new System.Drawing.Size(260, 26);
+            this.RegisterTextBox.Size = new System.Drawing.Size(320, 26);
             this.RegisterTextBox.TabIndex = 1;
             // 
             // RegisterButton
             // 
-            this.RegisterButton.Location = new System.Drawing.Point(357, 43);
+            this.RegisterButton.Location = new System.Drawing.Point(413, 59);
             this.RegisterButton.Name = "RegisterButton";
             this.RegisterButton.Size = new System.Drawing.Size(90, 30);
             this.RegisterButton.TabIndex = 2;
@@ -59,11 +60,21 @@
             this.RegisterButton.UseVisualStyleBackColor = true;
             this.RegisterButton.Click += new System.EventHandler(this.RegisterButton_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(185, 22);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(138, 18);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Provide Serial Key";
+            // 
             // RegisterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(480, 127);
+            this.ClientSize = new System.Drawing.Size(536, 127);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.RegisterButton);
             this.Controls.Add(this.RegisterTextBox);
             this.Controls.Add(this.label1);
@@ -82,5 +93,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox RegisterTextBox;
         private System.Windows.Forms.Button RegisterButton;
+        private System.Windows.Forms.Label label2;
     }
 }

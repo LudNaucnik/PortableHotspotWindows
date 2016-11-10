@@ -13,7 +13,8 @@ namespace PortableHotspotWindows
 {
     public partial class MainForm : Form
     {
-        SerialOperations.Operations SOperations = new SerialOperations.Operations();
+        SerialOperations.Operations opr = new SerialOperations.Operations();
+        SerialKeyIOClass IOkey = new SerialKeyIOClass();
         HotspotClass Hotspot = new HotspotClass();
         NetworkInfoClass NetworkInfo = new NetworkInfoClass();
         Boolean IsNetworkStarted;
@@ -28,7 +29,7 @@ namespace PortableHotspotWindows
         }
 
         private void MainForm_Load(object sender, EventArgs e)
-        {
+        {            
             UpdateLabelsText();
             ConnectedUsersTimer.Start();
             ContextMenu NotificationMenu = new ContextMenu();
@@ -47,6 +48,14 @@ namespace PortableHotspotWindows
             NotificationMenu.MenuItems.Add(Item1);
             NotificationMenu.MenuItems.Add(Item2);
             notifyIcon1.ContextMenu = NotificationMenu;
+            if(IOkey.ReadLicence() == false)
+            {
+                RegisterButton.PerformClick();
+            }
+            else
+            {
+                RegisterButton.Visible = false;
+            }
         }
 
         private void Item2_Click(object sender, EventArgs e)

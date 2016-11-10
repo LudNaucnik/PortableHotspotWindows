@@ -33,7 +33,7 @@
             this.MainMenuStripMenu = new System.Windows.Forms.MenuStrip();
             this.SetNetworkButton = new System.Windows.Forms.ToolStripMenuItem();
             this.RegisterButton = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AboutButton = new System.Windows.Forms.ToolStripMenuItem();
             this.ExitButton = new System.Windows.Forms.ToolStripMenuItem();
             this.SSIDLabel = new System.Windows.Forms.Label();
             this.KeyLabel = new System.Windows.Forms.Label();
@@ -58,7 +58,7 @@
             this.MainMenuStripMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.SetNetworkButton,
             this.RegisterButton,
-            this.aboutToolStripMenuItem,
+            this.AboutButton,
             this.ExitButton});
             this.MainMenuStripMenu.Location = new System.Drawing.Point(0, 0);
             this.MainMenuStripMenu.Name = "MainMenuStripMenu";
@@ -79,11 +79,11 @@
             this.RegisterButton.Text = "Register";
             this.RegisterButton.Click += new System.EventHandler(this.RegisterButton_Click);
             // 
-            // aboutToolStripMenuItem
+            // AboutButton
             // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
-            this.aboutToolStripMenuItem.Text = "About";
+            this.AboutButton.Name = "AboutButton";
+            this.AboutButton.Size = new System.Drawing.Size(52, 20);
+            this.AboutButton.Text = "About";
             // 
             // ExitButton
             // 
@@ -253,7 +253,7 @@
         #endregion
         private System.Windows.Forms.MenuStrip MainMenuStripMenu;
         private System.Windows.Forms.ToolStripMenuItem SetNetworkButton;
-        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem AboutButton;
         private System.Windows.Forms.ToolStripMenuItem ExitButton;
         private System.Windows.Forms.Label SSIDLabel;
         private System.Windows.Forms.Label KeyLabel;
