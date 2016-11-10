@@ -42,13 +42,13 @@
             this.MainStatusStripMenu = new System.Windows.Forms.StatusStrip();
             this.StatusConnectionLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.InformationTextBox = new System.Windows.Forms.RichTextBox();
-            this.ShowPassButton = new System.Windows.Forms.Button();
             this.StartStopButton = new System.Windows.Forms.Button();
             this.ConnectedClientsListBox = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.NumClientsLabel = new System.Windows.Forms.Label();
             this.ConnectedUsersTimer = new System.Windows.Forms.Timer(this.components);
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.ShowPassButton = new System.Windows.Forms.Button();
             this.MainMenuStripMenu.SuspendLayout();
             this.MainStatusStripMenu.SuspendLayout();
             this.SuspendLayout();
@@ -77,6 +77,7 @@
             this.RegisterButton.Name = "RegisterButton";
             this.RegisterButton.Size = new System.Drawing.Size(61, 20);
             this.RegisterButton.Text = "Register";
+            this.RegisterButton.Click += new System.EventHandler(this.RegisterButton_Click);
             // 
             // aboutToolStripMenuItem
             // 
@@ -151,18 +152,6 @@
             this.InformationTextBox.TabIndex = 7;
             this.InformationTextBox.Text = "";
             // 
-            // ShowPassButton
-            // 
-            this.ShowPassButton.BackgroundImage = global::PortableHotspotWindows.Properties.Resources.showPass;
-            this.ShowPassButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ShowPassButton.Location = new System.Drawing.Point(247, 77);
-            this.ShowPassButton.Name = "ShowPassButton";
-            this.ShowPassButton.Size = new System.Drawing.Size(30, 25);
-            this.ShowPassButton.TabIndex = 20;
-            this.ShowPassButton.UseVisualStyleBackColor = true;
-            this.ShowPassButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ShowPassButton_MouseDown);
-            this.ShowPassButton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ShowPassButton_MouseUp);
-            // 
             // StartStopButton
             // 
             this.StartStopButton.Location = new System.Drawing.Point(72, 129);
@@ -213,6 +202,18 @@
             this.notifyIcon1.Text = "Portable Hotspot Windows";
             this.notifyIcon1.Visible = true;
             this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
+            // 
+            // ShowPassButton
+            // 
+            this.ShowPassButton.BackgroundImage = global::PortableHotspotWindows.Properties.Resources.showPass;
+            this.ShowPassButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ShowPassButton.Location = new System.Drawing.Point(247, 77);
+            this.ShowPassButton.Name = "ShowPassButton";
+            this.ShowPassButton.Size = new System.Drawing.Size(30, 25);
+            this.ShowPassButton.TabIndex = 20;
+            this.ShowPassButton.UseVisualStyleBackColor = true;
+            this.ShowPassButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ShowPassButton_MouseDown);
+            this.ShowPassButton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ShowPassButton_MouseUp);
             // 
             // MainForm
             // 

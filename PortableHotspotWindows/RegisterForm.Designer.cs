@@ -46,23 +46,24 @@
             // 
             this.RegisterTextBox.Location = new System.Drawing.Point(80, 46);
             this.RegisterTextBox.Name = "RegisterTextBox";
-            this.RegisterTextBox.Size = new System.Drawing.Size(204, 26);
+            this.RegisterTextBox.Size = new System.Drawing.Size(260, 26);
             this.RegisterTextBox.TabIndex = 1;
             // 
             // RegisterButton
             // 
-            this.RegisterButton.Location = new System.Drawing.Point(303, 42);
+            this.RegisterButton.Location = new System.Drawing.Point(357, 43);
             this.RegisterButton.Name = "RegisterButton";
             this.RegisterButton.Size = new System.Drawing.Size(90, 30);
             this.RegisterButton.TabIndex = 2;
             this.RegisterButton.Text = "Register";
             this.RegisterButton.UseVisualStyleBackColor = true;
+            this.RegisterButton.Click += new System.EventHandler(this.RegisterButton_Click);
             // 
             // RegisterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(429, 127);
+            this.ClientSize = new System.Drawing.Size(480, 127);
             this.Controls.Add(this.RegisterButton);
             this.Controls.Add(this.RegisterTextBox);
             this.Controls.Add(this.label1);

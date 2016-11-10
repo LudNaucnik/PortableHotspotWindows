@@ -180,6 +180,19 @@ namespace PortableHotspotWindows
             }
         }
 
-
+        private void RegisterButton_Click(object sender, EventArgs e)
+        {
+            RegisterForm frm = new RegisterForm();
+            this.Hide();
+            frm.ShowDialog();
+            if(frm.ValidationKey == true)
+            {
+                this.Show();
+            }
+            else
+            {
+                Environment.Exit(0);
+            }
+        }
     }
 }
