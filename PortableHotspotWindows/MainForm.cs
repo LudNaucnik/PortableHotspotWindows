@@ -52,10 +52,6 @@ namespace PortableHotspotWindows
             {
                 RegisterButton.PerformClick();
             }
-            else
-            {
-                RegisterButton.Visible = false;
-            }
         }
 
         private void Item2_Click(object sender, EventArgs e)

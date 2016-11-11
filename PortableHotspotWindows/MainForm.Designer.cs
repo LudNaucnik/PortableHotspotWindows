@@ -77,6 +77,7 @@
             this.RegisterButton.Name = "RegisterButton";
             this.RegisterButton.Size = new System.Drawing.Size(61, 20);
             this.RegisterButton.Text = "Register";
+            this.RegisterButton.Visible = false;
             this.RegisterButton.Click += new System.EventHandler(this.RegisterButton_Click);
             // 
             // AboutButton
