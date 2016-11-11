@@ -13,7 +13,6 @@ namespace PortableHotspotWindows
 {
     public partial class MainForm : Form
     {
-        SerialOperations.Operations opr = new SerialOperations.Operations();
         SerialKeyIOClass IOkey = new SerialKeyIOClass();
         HotspotClass Hotspot = new HotspotClass();
         NetworkInfoClass NetworkInfo = new NetworkInfoClass();
