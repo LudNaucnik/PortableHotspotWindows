@@ -49,6 +49,7 @@
             this.RegisterTextBox.Name = "RegisterTextBox";
             this.RegisterTextBox.Size = new System.Drawing.Size(320, 26);
             this.RegisterTextBox.TabIndex = 1;
+            this.RegisterTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // RegisterButton
             // 
