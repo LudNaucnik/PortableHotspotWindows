@@ -77,6 +77,7 @@ namespace PortableHotspotWindows
             Form.ShowDialog();
             this.Show();
             UpdateLabelsText();
+            StartStopButton.Focus();
         }
 
         private void ShowPassButton_MouseDown(object sender, MouseEventArgs e)
@@ -197,6 +198,7 @@ namespace PortableHotspotWindows
             if(frm.ValidationKey == true)
             {
                 this.Show();
+                StartStopButton.Focus();
                 RegisterButton.Visible = false;
             }
             else
@@ -211,6 +213,7 @@ namespace PortableHotspotWindows
             this.Hide();
             frm.ShowDialog();
             this.Show();
+            StartStopButton.Focus();
         }
     }
 }
