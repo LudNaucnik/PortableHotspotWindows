@@ -204,5 +204,13 @@ namespace PortableHotspotWindows
                 Environment.Exit(0);
             }
         }
+
+        private void AboutButton_Click(object sender, EventArgs e)
+        {
+            AboutForm frm = new AboutForm();
+            this.Hide();
+            frm.ShowDialog();
+            this.Show();
+        }
     }
 }
