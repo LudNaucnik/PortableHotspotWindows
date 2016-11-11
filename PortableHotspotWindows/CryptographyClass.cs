@@ -17,7 +17,7 @@ namespace PortableHotspotWindows
         // This constant determines the number of iterations for the password bytes generation function.
         private const int DerivationIterations = 1000;
 
-        public static string EncryptPeople(string plainText, string passPhrase)
+        public static string Encrypt(string plainText, string passPhrase)
         {
             // Salt and IV is randomly generated each time, but is preprended to encrypted cipher text
             // so that the same Salt and IV values can be used when decrypting.  
@@ -54,7 +54,7 @@ namespace PortableHotspotWindows
             }
         }
 
-        public static string DecryptPeople(string cipherText, string passPhrase)
+        public static string Decrypt(string cipherText, string passPhrase)
         {
             // Get the complete stream of bytes that represent:
             // [32 bytes of Salt] + [32 bytes of IV] + [n bytes of CipherText]

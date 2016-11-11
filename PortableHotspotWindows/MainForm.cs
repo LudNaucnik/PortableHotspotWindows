@@ -13,6 +13,7 @@ namespace PortableHotspotWindows
 {
     public partial class MainForm : Form
     {
+        SerialOperations.Operations opr = new SerialOperations.Operations();
         SerialKeyIOClass IOkey = new SerialKeyIOClass();
         HotspotClass Hotspot = new HotspotClass();
         NetworkInfoClass NetworkInfo = new NetworkInfoClass();
@@ -50,6 +51,10 @@ namespace PortableHotspotWindows
             if(IOkey.ReadLicence() == false)
             {
                 RegisterButton.PerformClick();
+            }
+            else
+            {
+                RegisterButton.Visible = false;
             }
         }
 
@@ -192,6 +197,7 @@ namespace PortableHotspotWindows
             if(frm.ValidationKey == true)
             {
                 this.Show();
+                RegisterButton.Visible = false;
             }
             else
             {

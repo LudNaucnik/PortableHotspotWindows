@@ -12,20 +12,21 @@ namespace PortableHotspotWindows
     {
         SerialOperations.Operations opr = new SerialOperations.Operations();
         String LicencePath = Application.StartupPath + @"\licence.key";
+        private String EncryptionKey = @"YKP9J76DEM";
         public void WriteLicence(String Key)
         {
             if (File.Exists(LicencePath) == true)
             {
                 File.Delete(LicencePath);
             }
-            File.WriteAllText(LicencePath, Key);
+            File.WriteAllText(LicencePath, CryptographyClass.Encrypt(Key, EncryptionKey));
         }
 
         public Boolean ReadLicence()
         {
             try
             {
-                String Key = File.ReadAllText(LicencePath);
+                String Key = CryptographyClass.Decrypt(File.ReadAllText(LicencePath), EncryptionKey);
                 if (Key != "")
                 {
                     if (opr.VerifyCode(Key) == true)
