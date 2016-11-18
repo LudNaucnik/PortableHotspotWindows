@@ -198,16 +198,7 @@ namespace PortableHotspotWindows
                 LoggerClass.WriteLog("Program Exited");
                 SetThreadExecutionState(ES_CONTINUOUS);
                 Hotspot.Stop();
-                try
-                {
-
-                    Environment.Exit(0);
-                }
-                catch(Exception)
-                {
-                    Thread.Sleep(5000);
-                    Environment.Exit(0);
-                }
+                Application.Exit();
             }
             else
             {
