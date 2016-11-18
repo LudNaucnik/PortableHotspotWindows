@@ -145,6 +145,47 @@ namespace PortableHotspotWindows.CodedUI
             Mouse.Click(uIYesButton, new Point(37, 15));
         }
         
+        /// <summary>
+        /// MinimizeTest
+        /// </summary>
+        public void MinimizeTest()
+        {
+            #region Variable Declarations
+            WinTitleBar uIPortableHotspotWindoTitleBar = this.UIPortableHotspotWindoWindow.UIPortableHotspotWindoTitleBar;
+            WinButton uIStartHotspotButton = this.UIPortableHotspotWindoWindow.UIStartHotspotWindow.UIStartHotspotButton;
+            WinButton uIMinimizeButton = this.UIPortableHotspotWindoWindow.UIPortableHotspotWindoTitleBar.UIMinimizeButton;
+            WinButton uIPortableHotspotWindoButton = this.UIUserPromotedNotificaWindow.UIUserPromotedNotificaToolBar.UIPortableHotspotWindoButton;
+            WinButton uIShowPassButtonButton = this.UIPortableHotspotWindoWindow.UIShowPassButtonWindow.UIShowPassButtonButton;
+            WinButton uIStopHostspotButton = this.UIPortableHotspotWindoWindow.UIStopHostspotWindow.UIStopHostspotButton;
+            WinButton uICloseButton = this.UIPortableHotspotWindoWindow.UIPortableHotspotWindoTitleBar.UICloseButton;
+            WinButton uIYesButton = this.UIInformationWindow.UIYesWindow.UIYesButton;
+            #endregion
+
+            // Click 'Portable Hotspot Windows' title bar
+            Mouse.Click(uIPortableHotspotWindoTitleBar, new Point(232, 19));
+
+            // Click 'Start Hotspot' button
+            Mouse.Click(uIStartHotspotButton, new Point(94, 28));
+
+            // Click 'Minimize' button
+            Mouse.Click(uIMinimizeButton, new Point(25, 17));
+
+            // Double-Click 'Portable Hotspot Windows' button
+            Mouse.DoubleClick(uIPortableHotspotWindoButton, new Point(11, 15));
+
+            // Click 'ShowPassButton' button
+            Mouse.Click(uIShowPassButtonButton, new Point(24, 13));
+
+            // Click 'Stop Hostspot' button
+            Mouse.Click(uIStopHostspotButton, new Point(87, 45));
+
+            // Click 'Close' button
+            Mouse.Click(uICloseButton, new Point(16, 20));
+
+            // Click '&Yes' button
+            Mouse.Click(uIYesButton, new Point(49, 13));
+        }
+        
         #region Properties
         public virtual SetShareNetworkParams SetShareNetworkParams
         {
@@ -205,6 +246,18 @@ namespace PortableHotspotWindows.CodedUI
                 return this.mUISetHotspotWindow;
             }
         }
+        
+        public UIUserPromotedNotificaWindow UIUserPromotedNotificaWindow
+        {
+            get
+            {
+                if ((this.mUIUserPromotedNotificaWindow == null))
+                {
+                    this.mUIUserPromotedNotificaWindow = new UIUserPromotedNotificaWindow();
+                }
+                return this.mUIUserPromotedNotificaWindow;
+            }
+        }
         #endregion
         
         #region Fields
@@ -217,6 +270,8 @@ namespace PortableHotspotWindows.CodedUI
         private UIInformationWindow mUIInformationWindow;
         
         private UISetHotspotWindow mUISetHotspotWindow;
+        
+        private UIUserPromotedNotificaWindow mUIUserPromotedNotificaWindow;
         #endregion
     }
     
@@ -317,6 +372,18 @@ namespace PortableHotspotWindows.CodedUI
                 return this.mUIMainMenuStripMenuMenuBar;
             }
         }
+        
+        public UIStopHostspotWindow UIStopHostspotWindow
+        {
+            get
+            {
+                if ((this.mUIStopHostspotWindow == null))
+                {
+                    this.mUIStopHostspotWindow = new UIStopHostspotWindow(this);
+                }
+                return this.mUIStopHostspotWindow;
+            }
+        }
         #endregion
         
         #region Fields
@@ -327,6 +394,8 @@ namespace PortableHotspotWindows.CodedUI
         private UIShowPassButtonWindow mUIShowPassButtonWindow;
         
         private UIMainMenuStripMenuMenuBar mUIMainMenuStripMenuMenuBar;
+        
+        private UIStopHostspotWindow mUIStopHostspotWindow;
         #endregion
     }
     
@@ -358,10 +427,28 @@ namespace PortableHotspotWindows.CodedUI
                 return this.mUICloseButton;
             }
         }
+        
+        public WinButton UIMinimizeButton
+        {
+            get
+            {
+                if ((this.mUIMinimizeButton == null))
+                {
+                    this.mUIMinimizeButton = new WinButton(this);
+                    #region Search Criteria
+                    this.mUIMinimizeButton.SearchProperties[WinButton.PropertyNames.Name] = "Minimize";
+                    this.mUIMinimizeButton.WindowTitles.Add("Portable Hotspot Windows");
+                    #endregion
+                }
+                return this.mUIMinimizeButton;
+            }
+        }
         #endregion
         
         #region Fields
         private WinButton mUICloseButton;
+        
+        private WinButton mUIMinimizeButton;
         #endregion
     }
     
@@ -522,6 +609,42 @@ namespace PortableHotspotWindows.CodedUI
         private WinMenuItem mUIExitMenuItem;
         
         private WinMenuItem mUISetNetworkMenuItem;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
+    public class UIStopHostspotWindow : WinWindow
+    {
+        
+        public UIStopHostspotWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "StartStopButton";
+            this.WindowTitles.Add("Portable Hotspot Windows");
+            #endregion
+        }
+        
+        #region Properties
+        public WinButton UIStopHostspotButton
+        {
+            get
+            {
+                if ((this.mUIStopHostspotButton == null))
+                {
+                    this.mUIStopHostspotButton = new WinButton(this);
+                    #region Search Criteria
+                    this.mUIStopHostspotButton.SearchProperties[WinButton.PropertyNames.Name] = "Stop Hostspot";
+                    this.mUIStopHostspotButton.WindowTitles.Add("Portable Hotspot Windows");
+                    #endregion
+                }
+                return this.mUIStopHostspotButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinButton mUIStopHostspotButton;
         #endregion
     }
     
@@ -1157,6 +1280,74 @@ namespace PortableHotspotWindows.CodedUI
         
         #region Fields
         private WinButton mUICloseButton;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
+    public class UIUserPromotedNotificaWindow : WinWindow
+    {
+        
+        public UIUserPromotedNotificaWindow()
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "User Promoted Notification Area";
+            this.SearchProperties[WinWindow.PropertyNames.ClassName] = "ToolbarWindow32";
+            this.WindowTitles.Add("User Promoted Notification Area");
+            #endregion
+        }
+        
+        #region Properties
+        public UIUserPromotedNotificaToolBar UIUserPromotedNotificaToolBar
+        {
+            get
+            {
+                if ((this.mUIUserPromotedNotificaToolBar == null))
+                {
+                    this.mUIUserPromotedNotificaToolBar = new UIUserPromotedNotificaToolBar(this);
+                }
+                return this.mUIUserPromotedNotificaToolBar;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIUserPromotedNotificaToolBar mUIUserPromotedNotificaToolBar;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
+    public class UIUserPromotedNotificaToolBar : WinToolBar
+    {
+        
+        public UIUserPromotedNotificaToolBar(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinToolBar.PropertyNames.Name] = "User Promoted Notification Area";
+            this.WindowTitles.Add("User Promoted Notification Area");
+            #endregion
+        }
+        
+        #region Properties
+        public WinButton UIPortableHotspotWindoButton
+        {
+            get
+            {
+                if ((this.mUIPortableHotspotWindoButton == null))
+                {
+                    this.mUIPortableHotspotWindoButton = new WinButton(this);
+                    #region Search Criteria
+                    this.mUIPortableHotspotWindoButton.SearchProperties[WinButton.PropertyNames.Name] = "Portable Hotspot Windows";
+                    this.mUIPortableHotspotWindoButton.WindowTitles.Add("User Promoted Notification Area");
+                    #endregion
+                }
+                return this.mUIPortableHotspotWindoButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinButton mUIPortableHotspotWindoButton;
         #endregion
     }
 }
