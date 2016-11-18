@@ -186,6 +186,54 @@ namespace PortableHotspotWindows.CodedUI
             Mouse.Click(uIYesButton, new Point(49, 13));
         }
         
+        /// <summary>
+        /// LicenceTest - Use 'LicenceTestParams' to pass parameters into this method.
+        /// </summary>
+        public void LicenceTest()
+        {
+            #region Variable Declarations
+            WinTitleBar uIRegisterTitleBar = this.UIRegisterWindow.UIRegisterTitleBar;
+            WinEdit uIRegisterTextBoxEdit = this.UIRegisterWindow.UIRegisterTextBoxWindow.UIRegisterTextBoxEdit;
+            WinButton uIRegisterButton = this.UIRegisterWindow.UIRegisterWindow1.UIRegisterButton;
+            WinButton uIOKButton = this.UIInformationWindow.UIOKWindow.UIOKButton;
+            WinButton uIShowPassButtonButton = this.UIPortableHotspotWindoWindow.UIShowPassButtonWindow.UIShowPassButtonButton;
+            WinButton uIStartHotspotButton = this.UIPortableHotspotWindoWindow.UIStartHotspotWindow.UIStartHotspotButton;
+            WinButton uIStopHostspotButton = this.UIPortableHotspotWindoWindow.UIStartHotspotWindow.UIStopHostspotButton;
+            WinMenuItem uIExitMenuItem = this.UIPortableHotspotWindoWindow.UIMainMenuStripMenuMenuBar.UIExitMenuItem;
+            WinButton uIYesButton = this.UIInformationWindow.UIYesWindow.UIYesButton;
+            #endregion
+
+            // Click 'Register' title bar
+            Mouse.Click(uIRegisterTitleBar, new Point(192, 10));
+
+            // Type 'ZTGUW-0B2US-LXQK5-2BJF1-JZREA' in 'RegisterTextBox' text box
+            uIRegisterTextBoxEdit.Text = this.LicenceTestParams.UIRegisterTextBoxEditText;
+
+            // Click 'Register' button
+            Mouse.Click(uIRegisterButton, new Point(26, 17));
+
+            // Click 'OK' button
+            Mouse.Click(uIOKButton, new Point(40, 14));
+
+            // Click 'ShowPassButton' button
+            Mouse.Click(uIShowPassButtonButton, new Point(27, 14));
+
+            // Click 'ShowPassButton' button
+            Mouse.Click(uIShowPassButtonButton, new Point(14, 14));
+
+            // Click 'Start Hotspot' button
+            Mouse.Click(uIStartHotspotButton, new Point(81, 34));
+
+            // Click 'Stop Hostspot' button
+            Mouse.Click(uIStopHostspotButton, new Point(135, 31));
+
+            // Click 'Exit' menu item
+            Mouse.Click(uIExitMenuItem, new Point(14, 7));
+
+            // Click '&Yes' button
+            Mouse.Click(uIYesButton, new Point(63, 11));
+        }
+        
         #region Properties
         public virtual SetShareNetworkParams SetShareNetworkParams
         {
@@ -196,6 +244,18 @@ namespace PortableHotspotWindows.CodedUI
                     this.mSetShareNetworkParams = new SetShareNetworkParams();
                 }
                 return this.mSetShareNetworkParams;
+            }
+        }
+        
+        public virtual LicenceTestParams LicenceTestParams
+        {
+            get
+            {
+                if ((this.mLicenceTestParams == null))
+                {
+                    this.mLicenceTestParams = new LicenceTestParams();
+                }
+                return this.mLicenceTestParams;
             }
         }
         
@@ -258,10 +318,24 @@ namespace PortableHotspotWindows.CodedUI
                 return this.mUIUserPromotedNotificaWindow;
             }
         }
+        
+        public UIRegisterWindow UIRegisterWindow
+        {
+            get
+            {
+                if ((this.mUIRegisterWindow == null))
+                {
+                    this.mUIRegisterWindow = new UIRegisterWindow();
+                }
+                return this.mUIRegisterWindow;
+            }
+        }
         #endregion
         
         #region Fields
         private SetShareNetworkParams mSetShareNetworkParams;
+        
+        private LicenceTestParams mLicenceTestParams;
         
         private UIPortableHotspotWindoWindow mUIPortableHotspotWindoWindow;
         
@@ -272,6 +346,8 @@ namespace PortableHotspotWindows.CodedUI
         private UISetHotspotWindow mUISetHotspotWindow;
         
         private UIUserPromotedNotificaWindow mUIUserPromotedNotificaWindow;
+        
+        private UIRegisterWindow mUIRegisterWindow;
         #endregion
     }
     
@@ -308,6 +384,21 @@ namespace PortableHotspotWindows.CodedUI
         /// Select 'Local Area Connection* 3' in 'ToNetworkListComboBox' combo box
         /// </summary>
         public string UIToNetworkListComboBoComboBoxSelectedItem = "Local Area Connection* 3";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parameters to be passed into 'LicenceTest'
+    /// </summary>
+    [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
+    public class LicenceTestParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Type 'ZTGUW-0B2US-LXQK5-2BJF1-JZREA' in 'RegisterTextBox' text box
+        /// </summary>
+        public string UIRegisterTextBoxEditText = "ZTGUW-0B2US-LXQK5-2BJF1-JZREA";
         #endregion
     }
     
@@ -1348,6 +1439,141 @@ namespace PortableHotspotWindows.CodedUI
         
         #region Fields
         private WinButton mUIPortableHotspotWindoButton;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
+    public class UIRegisterWindow : WinWindow
+    {
+        
+        public UIRegisterWindow()
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "Register";
+            this.SearchProperties.Add(new PropertyExpression(WinWindow.PropertyNames.ClassName, "WindowsForms10.Window", PropertyExpressionOperator.Contains));
+            this.WindowTitles.Add("Register");
+            #endregion
+        }
+        
+        #region Properties
+        public WinTitleBar UIRegisterTitleBar
+        {
+            get
+            {
+                if ((this.mUIRegisterTitleBar == null))
+                {
+                    this.mUIRegisterTitleBar = new WinTitleBar(this);
+                    #region Search Criteria
+                    this.mUIRegisterTitleBar.WindowTitles.Add("Register");
+                    #endregion
+                }
+                return this.mUIRegisterTitleBar;
+            }
+        }
+        
+        public UIRegisterTextBoxWindow UIRegisterTextBoxWindow
+        {
+            get
+            {
+                if ((this.mUIRegisterTextBoxWindow == null))
+                {
+                    this.mUIRegisterTextBoxWindow = new UIRegisterTextBoxWindow(this);
+                }
+                return this.mUIRegisterTextBoxWindow;
+            }
+        }
+        
+        public UIRegisterWindow1 UIRegisterWindow1
+        {
+            get
+            {
+                if ((this.mUIRegisterWindow1 == null))
+                {
+                    this.mUIRegisterWindow1 = new UIRegisterWindow1(this);
+                }
+                return this.mUIRegisterWindow1;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinTitleBar mUIRegisterTitleBar;
+        
+        private UIRegisterTextBoxWindow mUIRegisterTextBoxWindow;
+        
+        private UIRegisterWindow1 mUIRegisterWindow1;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
+    public class UIRegisterTextBoxWindow : WinWindow
+    {
+        
+        public UIRegisterTextBoxWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "RegisterTextBox";
+            this.WindowTitles.Add("Register");
+            #endregion
+        }
+        
+        #region Properties
+        public WinEdit UIRegisterTextBoxEdit
+        {
+            get
+            {
+                if ((this.mUIRegisterTextBoxEdit == null))
+                {
+                    this.mUIRegisterTextBoxEdit = new WinEdit(this);
+                    #region Search Criteria
+                    this.mUIRegisterTextBoxEdit.SearchProperties[WinEdit.PropertyNames.Name] = "Key";
+                    this.mUIRegisterTextBoxEdit.WindowTitles.Add("Register");
+                    #endregion
+                }
+                return this.mUIRegisterTextBoxEdit;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinEdit mUIRegisterTextBoxEdit;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
+    public class UIRegisterWindow1 : WinWindow
+    {
+        
+        public UIRegisterWindow1(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "RegisterButton";
+            this.WindowTitles.Add("Register");
+            #endregion
+        }
+        
+        #region Properties
+        public WinButton UIRegisterButton
+        {
+            get
+            {
+                if ((this.mUIRegisterButton == null))
+                {
+                    this.mUIRegisterButton = new WinButton(this);
+                    #region Search Criteria
+                    this.mUIRegisterButton.SearchProperties[WinButton.PropertyNames.Name] = "Register";
+                    this.mUIRegisterButton.WindowTitles.Add("Register");
+                    #endregion
+                }
+                return this.mUIRegisterButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinButton mUIRegisterButton;
         #endregion
     }
 }
