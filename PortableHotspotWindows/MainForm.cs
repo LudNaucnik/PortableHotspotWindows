@@ -20,7 +20,6 @@ namespace PortableHotspotWindows
         Boolean IsNetworkStarted;
         public const uint ES_CONTINUOUS = 0x80000000;
         public const uint ES_SYSTEM_REQUIRED = 0x00000001;
-
         [DllImport("kernel32.dll", SetLastError = true)]
         public static extern uint SetThreadExecutionState([In] uint esFlags);
         public MainForm()
@@ -118,20 +117,17 @@ namespace PortableHotspotWindows
             if (IsNetworkStarted == false)
             {
                 Hotspot.Start();
-                LoggerClass.WriteLog("Hotspot Started");
                 ConnectedUsersTimer.Start();
                 SetThreadExecutionState(ES_CONTINUOUS | ES_SYSTEM_REQUIRED);
             }
             else
             {
                 Hotspot.Stop();
-                LoggerClass.WriteLog("Hotspot Stopped");
                 ConnectedUsersTimer.Stop();
                 SetThreadExecutionState(ES_CONTINUOUS);
             }
             UpdateLabelsText();
             InformationTextBox.AppendText(Hotspot.Message);
-            LoggerClass.WriteLog(Hotspot.Message);
             AutoScrollTextArea();
         }
 

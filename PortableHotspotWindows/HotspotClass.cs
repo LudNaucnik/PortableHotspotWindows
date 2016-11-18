@@ -15,6 +15,7 @@ namespace PortableHotspotWindows
         private dynamic everyConnections = null;
         private bool hasNetSharingManager = false;
         public string Message { get; set; } = "";
+        public Boolean WriteLog { get; set; } = false;
 
         public HotspotClass()
         {
@@ -34,6 +35,7 @@ namespace PortableHotspotWindows
             if (netSharingManager == null)
             {
                 this.Message = "HNetCfg.HNetShare.1 was not found! \n";
+                LoggerClass.WriteLog(Message);
                 hasNetSharingManager = true;
             }
             else
@@ -44,6 +46,7 @@ namespace PortableHotspotWindows
             if (netSharingManager.SharingInstalled == false)
             {
                 this.Message = "Sharing on this platform is not available \n";
+                LoggerClass.WriteLog(Message);
                 hasNetSharingManager = false;
             }
             else
@@ -61,6 +64,7 @@ namespace PortableHotspotWindows
 
         private bool Execute(ProcessStartInfo ps)
         {
+            Message = "";
             bool isExecuted = false;
             try
             {
@@ -82,18 +86,24 @@ namespace PortableHotspotWindows
 
         public void Start()
         {
+            Message = "";
             ps.Arguments = "wlan start hosted network";
             Execute(ps);
+            LoggerClass.WriteLog(Message);
         }
         public void Create(String ssid, String key)
         {
+            Message = "";
             ps.Arguments = @"wlan set hostednetwork mode=allow ssid=" + ssid + " key=" + key;
             Execute(ps);
+            LoggerClass.WriteLog(Message);
         }
         public void Stop()
         {
+            Message = "";
             ps.Arguments = "wlan stop hosted network";
             Execute(ps);
+            LoggerClass.WriteLog(Message);
         }
 
         public NetworkInfoClass GetNetworkInfo()
@@ -106,27 +116,24 @@ namespace PortableHotspotWindows
             {
                 Info.NetworkStatus = (Regex.Match(Message, @"[\n\r].*Status                 : \s*([^\n\r]*)")).Groups[1].Value;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                LoggerClass.WriteLog(ex.Message);
                 Info.NetworkStatus = null;
             }
             try
             {
                 Info.SSID = (Regex.Match(Message, @"[\n\r].*SSID name              : \s*([^\n\r]*)")).Groups[1].Value.Replace("\"", "");
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                LoggerClass.WriteLog(ex.Message);
                 Info.SSID = null;
             }
             try
             {
                 Info.NumOfClients = (Regex.Match(Message, @"[\n\r].*Number of clients      : \s*([^\n\r]*)")).Groups[1].Value;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                LoggerClass.WriteLog(ex.Message);
                 Info.NumOfClients = "0";
             }
             try
@@ -140,10 +147,13 @@ namespace PortableHotspotWindows
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                LoggerClass.WriteLog(ex.Message);
                 Info.ConnectedClients = null;
+            }
+            if(WriteLog == true)
+            {
+                LoggerClass.WriteLog(Message);
             }
             Message = "";
             ps.Arguments = "wlan show  hostednetwork setting=security";
@@ -152,10 +162,13 @@ namespace PortableHotspotWindows
             {
                 Info.Key = (Regex.Match(Message, @"[\n\r].*User security key      : \s*([^\n\r]*)")).Groups[1].Value;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                LoggerClass.WriteLog(ex.Message);
                 Info.Key = null;
+            }
+            if(WriteLog == true)
+            {
+                LoggerClass.WriteLog(Message);
             }
             return Info;
         }
@@ -178,6 +191,7 @@ namespace PortableHotspotWindows
 
         public void ShareInternet(String pubConnectionName, String priConnectionName, bool isEnabled)
         {
+            Message = "";
             bool hasCon = false;
             dynamic everyConnection = null;
             dynamic connectionProp = null;
@@ -215,7 +229,7 @@ namespace PortableHotspotWindows
                     }
                 }
             }
-
+            LoggerClass.WriteLog(Message);
             if (!hasCon)
             {
                 this.Message += "No connection found!";

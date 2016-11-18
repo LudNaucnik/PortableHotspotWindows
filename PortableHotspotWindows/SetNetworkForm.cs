@@ -13,7 +13,6 @@ namespace PortableHotspotWindows
 {
     public partial class SetNetworkForm : Form
     {
-        SerialOperations.Operations SOperations = new SerialOperations.Operations();
         HotspotClass Hotspot = new HotspotClass();
         NetworkInfoClass NetworkInfo = new NetworkInfoClass();
         public SetNetworkForm()
@@ -30,6 +29,7 @@ namespace PortableHotspotWindows
 
         public void populateConnections()
         {
+            FromNetworkListComboBox.Items.Clear();
             ToNetworkListComboBox.Items.Clear();
             Hotspot.GetConnections().ForEach(Connection => { ToNetworkListComboBox.Items.Add(Connection); });
             Hotspot.GetConnections().ForEach(Connection => { FromNetworkListComboBox.Items.Add(Connection); });
@@ -65,10 +65,12 @@ namespace PortableHotspotWindows
             else
             {
                 Hotspot.Create(Regex.Replace(SSIDTextBox.Text, @"\s+", ""), KeyTextBox.Text);
+                Hotspot.WriteLog = true;
                 Hotspot.Start();
+                Hotspot.GetNetworkInfo();
+                Hotspot.WriteLog = false;
                 populateConnections();
                 InformationTextBox.AppendText(Hotspot.Message);
-                LoggerClass.WriteLog(Hotspot.Message);
                 AutoScrollTextArea();
             }
         }
