@@ -41,6 +41,7 @@ namespace PortableHotspotWindows
             {
                 Hotspot.ShareInternet(FromNetworkListComboBox.SelectedItem.ToString(), ToNetworkListComboBox.SelectedItem.ToString(), true);
                 LoggerClass.WriteLog(Hotspot.Message);
+                MessageBox.Show("Network is Shared", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
@@ -68,6 +69,7 @@ namespace PortableHotspotWindows
                 Hotspot.GetNetworkInfo();
                 Hotspot.WriteLog = false;
                 populateConnections();
+                MessageBox.Show("Network is Set", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
