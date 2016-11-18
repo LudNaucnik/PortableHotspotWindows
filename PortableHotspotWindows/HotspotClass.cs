@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PortableHotspotWindows
 {
-    class HotspotClass
+    public class HotspotClass
     {
         private ProcessStartInfo ps = null;
         private dynamic netSharingManager = null;
@@ -22,7 +22,7 @@ namespace PortableHotspotWindows
             InitializeNetwork();
         }
 
-        private void InitializeNetwork()
+        public void InitializeNetwork()
         {
             ps = new ProcessStartInfo("cmd.exe");
             ps.UseShellExecute = false;
@@ -62,7 +62,7 @@ namespace PortableHotspotWindows
 
         }
 
-        private bool Execute(ProcessStartInfo ps)
+        public bool Execute(ProcessStartInfo ps)
         {
             Message = "";
             bool isExecuted = false;
@@ -151,7 +151,7 @@ namespace PortableHotspotWindows
             {
                 Info.ConnectedClients = null;
             }
-            if(WriteLog == true)
+            if (WriteLog == true)
             {
                 LoggerClass.WriteLog(Message);
             }
@@ -166,7 +166,7 @@ namespace PortableHotspotWindows
             {
                 Info.Key = null;
             }
-            if(WriteLog == true)
+            if (WriteLog == true)
             {
                 LoggerClass.WriteLog(Message);
             }

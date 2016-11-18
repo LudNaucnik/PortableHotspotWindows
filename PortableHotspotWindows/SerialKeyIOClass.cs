@@ -8,7 +8,7 @@ using System.IO;
 
 namespace PortableHotspotWindows
 {
-    class SerialKeyIOClass
+    public class SerialKeyIOClass
     {
         SerialOperations.Operations opr = new SerialOperations.Operations();
         public static String LicencePath = Application.StartupPath + @"\licence.key";
