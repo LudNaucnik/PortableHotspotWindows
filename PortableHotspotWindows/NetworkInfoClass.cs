@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PortableHotspotWindows
 {
-    class NetworkInfoClass
+    public class NetworkInfoClass
     {
         public String NetworkStatus { get; set; }
         public String SSID { get; set; }
