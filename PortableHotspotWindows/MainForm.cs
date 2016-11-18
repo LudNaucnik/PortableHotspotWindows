@@ -159,6 +159,7 @@ namespace PortableHotspotWindows
             }
             else
             {
+                NumClientsLabel.Text = @"0";
                 ConnectedClientsListBox.Items.Clear();
             }
         }
