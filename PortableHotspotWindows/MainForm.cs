@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -197,7 +198,16 @@ namespace PortableHotspotWindows
                 LoggerClass.WriteLog("Program Exited");
                 SetThreadExecutionState(ES_CONTINUOUS);
                 Hotspot.Stop();
-                Environment.Exit(0);
+                try
+                {
+
+                    Environment.Exit(0);
+                }
+                catch(Exception)
+                {
+                    Thread.Sleep(5000);
+                    Environment.Exit(0);
+                }
             }
             else
             {
