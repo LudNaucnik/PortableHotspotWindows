@@ -29,7 +29,7 @@ namespace PortableHotspotWindows
         }
 
         private void MainForm_Load(object sender, EventArgs e)
-        {            
+        {
             UpdateLabelsText();
             ConnectedUsersTimer.Start();
             ContextMenu NotificationMenu = new ContextMenu();
@@ -48,7 +48,7 @@ namespace PortableHotspotWindows
             NotificationMenu.MenuItems.Add(Item1);
             NotificationMenu.MenuItems.Add(Item2);
             notifyIcon1.ContextMenu = NotificationMenu;
-            if(IOkey.ReadLicence() == false)
+            if (IOkey.ReadLicence() == false)
             {
                 RegisterButton.PerformClick();
             }
@@ -72,9 +72,23 @@ namespace PortableHotspotWindows
 
         private void setNetworkButton_Click(object sender, EventArgs e)
         {
+            Boolean CheckStartSetNetwork;
             SetNetworkForm Form = new SetNetworkForm();
+            if (NetworkInfo.NetworkStatus == "Started")
+            {
+                CheckStartSetNetwork = true;
+            }
+            else
+            {
+                Hotspot.Start();
+                CheckStartSetNetwork = false;
+            }
             this.Hide();
             Form.ShowDialog();
+            if (CheckStartSetNetwork == false)
+            {
+                Hotspot.Stop();
+            }
             this.Show();
             UpdateLabelsText();
             StartStopButton.Focus();
@@ -195,7 +209,7 @@ namespace PortableHotspotWindows
             RegisterForm frm = new RegisterForm();
             this.Hide();
             frm.ShowDialog();
-            if(frm.ValidationKey == true)
+            if (frm.ValidationKey == true)
             {
                 this.Show();
                 StartStopButton.Focus();
