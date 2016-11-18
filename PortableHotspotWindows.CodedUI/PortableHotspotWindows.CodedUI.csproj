@@ -53,6 +53,7 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LicenceTest.cs" />
     <Compile Include="MinimizeTest.cs" />
     <Compile Include="SetShareTest.cs" />
     <Compile Include="StartStopTest.cs" />
