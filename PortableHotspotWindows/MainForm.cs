@@ -54,7 +54,16 @@ namespace PortableHotspotWindows
             }
             else
             {
+                LoggerClass.WriteLog("Licence Verified" + Environment.NewLine + "Program Started");
                 RegisterButton.Visible = false;
+            }
+            if(NetworkInfo.NetworkStatus == "Started")
+            {
+                LoggerClass.WriteLog("Hotspot Started");
+            }
+            else
+            {
+                LoggerClass.WriteLog("Hotspot Not Started");
             }
         }
 
@@ -109,17 +118,20 @@ namespace PortableHotspotWindows
             if (IsNetworkStarted == false)
             {
                 Hotspot.Start();
+                LoggerClass.WriteLog("Hotspot Started");
                 ConnectedUsersTimer.Start();
                 SetThreadExecutionState(ES_CONTINUOUS | ES_SYSTEM_REQUIRED);
             }
             else
             {
                 Hotspot.Stop();
+                LoggerClass.WriteLog("Hotspot Stopped");
                 ConnectedUsersTimer.Stop();
                 SetThreadExecutionState(ES_CONTINUOUS);
             }
             UpdateLabelsText();
             InformationTextBox.AppendText(Hotspot.Message);
+            LoggerClass.WriteLog(Hotspot.Message);
             AutoScrollTextArea();
         }
 
@@ -194,6 +206,7 @@ namespace PortableHotspotWindows
             DialogResult result = MessageBox.Show("Are You Sure?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
+                LoggerClass.WriteLog("Program Exited");
                 SetThreadExecutionState(ES_CONTINUOUS);
                 Hotspot.Stop();
                 Environment.Exit(0);

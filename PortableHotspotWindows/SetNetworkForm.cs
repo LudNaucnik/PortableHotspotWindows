@@ -41,6 +41,7 @@ namespace PortableHotspotWindows
             {
                 Hotspot.ShareInternet(FromNetworkListComboBox.SelectedItem.ToString(), ToNetworkListComboBox.SelectedItem.ToString(), true);
                 InformationTextBox.AppendText(Hotspot.Message);
+                LoggerClass.WriteLog(Hotspot.Message);
                 AutoScrollTextArea();
             }
             catch (Exception ex)
@@ -67,6 +68,7 @@ namespace PortableHotspotWindows
                 Hotspot.Start();
                 populateConnections();
                 InformationTextBox.AppendText(Hotspot.Message);
+                LoggerClass.WriteLog(Hotspot.Message);
                 AutoScrollTextArea();
             }
         }

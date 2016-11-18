@@ -106,24 +106,27 @@ namespace PortableHotspotWindows
             {
                 Info.NetworkStatus = (Regex.Match(Message, @"[\n\r].*Status                 : \s*([^\n\r]*)")).Groups[1].Value;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                LoggerClass.WriteLog(ex.Message);
                 Info.NetworkStatus = null;
             }
             try
             {
                 Info.SSID = (Regex.Match(Message, @"[\n\r].*SSID name              : \s*([^\n\r]*)")).Groups[1].Value.Replace("\"", "");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                LoggerClass.WriteLog(ex.Message);
                 Info.SSID = null;
             }
             try
             {
                 Info.NumOfClients = (Regex.Match(Message, @"[\n\r].*Number of clients      : \s*([^\n\r]*)")).Groups[1].Value;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                LoggerClass.WriteLog(ex.Message);
                 Info.NumOfClients = "0";
             }
             try
@@ -137,8 +140,9 @@ namespace PortableHotspotWindows
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                LoggerClass.WriteLog(ex.Message);
                 Info.ConnectedClients = null;
             }
             Message = "";
@@ -148,8 +152,9 @@ namespace PortableHotspotWindows
             {
                 Info.Key = (Regex.Match(Message, @"[\n\r].*User security key      : \s*([^\n\r]*)")).Groups[1].Value;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                LoggerClass.WriteLog(ex.Message);
                 Info.Key = null;
             }
             return Info;

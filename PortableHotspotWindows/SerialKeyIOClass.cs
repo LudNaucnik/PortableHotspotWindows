@@ -11,12 +11,13 @@ namespace PortableHotspotWindows
     class SerialKeyIOClass
     {
         SerialOperations.Operations opr = new SerialOperations.Operations();
-        String LicencePath = Application.StartupPath + @"\licence.key";
+        public static String LicencePath = Application.StartupPath + @"\licence.key";
         private String EncryptionKey = @"YKP9J76DEM";
         public void WriteLicence(String Key)
         {
             if (File.Exists(LicencePath) == true)
             {
+                LoggerClass.WriteLog("Licence Deleted");
                 File.Delete(LicencePath);
             }
             File.WriteAllText(LicencePath, CryptographyClass.Encrypt(Key, EncryptionKey));
@@ -35,18 +36,21 @@ namespace PortableHotspotWindows
                     }
                     else
                     {
+                        LoggerClass.WriteLog("Non Valid Licence");
                         File.Delete(LicencePath);
                         return false;
                     }
                 }
                 else
                 {
+                    LoggerClass.WriteLog("Non Valid Licence");
                     File.Delete(LicencePath);
                     return false;
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                LoggerClass.WriteLog(ex.Message);
                 return false;
             }
 

@@ -64,6 +64,7 @@
     </Compile>
     <Compile Include="CryptographyClass.cs" />
     <Compile Include="HotspotClass.cs" />
+    <Compile Include="LoggerClass.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

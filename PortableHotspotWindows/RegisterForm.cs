@@ -39,9 +39,10 @@ namespace PortableHotspotWindows
             }
             else
             {
-                MessageBox.Show("valid Serial Key", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Valid Serial Key", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ValidationKey = true;
                 IOKey.WriteLicence(RegisterTextBox.Text);
+                LoggerClass.WriteLog("Inserted Valid Serial Key EncyptedKey=" + System.IO.File.ReadAllText(SerialKeyIOClass.LicencePath));
                 this.Close();
             }
         }
