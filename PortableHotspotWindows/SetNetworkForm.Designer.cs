@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SetNetworkForm));
             this.ShareInternetButton = new System.Windows.Forms.Button();
             this.ToNetworkListComboBox = new System.Windows.Forms.ComboBox();
-            this.InformationTextBox = new System.Windows.Forms.RichTextBox();
             this.KeyTextBox = new System.Windows.Forms.TextBox();
             this.SSIDTextBox = new System.Windows.Forms.TextBox();
             this.KeyLabel = new System.Windows.Forms.Label();
@@ -65,15 +64,6 @@
             this.ToNetworkListComboBox.Size = new System.Drawing.Size(220, 26);
             this.ToNetworkListComboBox.TabIndex = 4;
             this.ToNetworkListComboBox.Click += new System.EventHandler(this.ToNetworkListComboBox_Click);
-            // 
-            // InformationTextBox
-            // 
-            this.InformationTextBox.Location = new System.Drawing.Point(25, 233);
-            this.InformationTextBox.Name = "InformationTextBox";
-            this.InformationTextBox.ReadOnly = true;
-            this.InformationTextBox.Size = new System.Drawing.Size(387, 119);
-            this.InformationTextBox.TabIndex = 6;
-            this.InformationTextBox.Text = "";
             // 
             // KeyTextBox
             // 
@@ -181,7 +171,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(439, 384);
+            this.ClientSize = new System.Drawing.Size(439, 253);
             this.Controls.Add(this.ShowPassButton);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -191,7 +181,6 @@
             this.Controls.Add(this.FromNetworkListComboBox);
             this.Controls.Add(this.ShareInternetButton);
             this.Controls.Add(this.ToNetworkListComboBox);
-            this.Controls.Add(this.InformationTextBox);
             this.Controls.Add(this.KeyTextBox);
             this.Controls.Add(this.SSIDTextBox);
             this.Controls.Add(this.KeyLabel);
@@ -212,7 +201,6 @@
 
         private System.Windows.Forms.Button ShareInternetButton;
         private System.Windows.Forms.ComboBox ToNetworkListComboBox;
-        private System.Windows.Forms.RichTextBox InformationTextBox;
         private System.Windows.Forms.TextBox KeyTextBox;
         private System.Windows.Forms.TextBox SSIDTextBox;
         private System.Windows.Forms.Label KeyLabel;

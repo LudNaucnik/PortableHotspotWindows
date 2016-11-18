@@ -127,8 +127,6 @@ namespace PortableHotspotWindows
                 SetThreadExecutionState(ES_CONTINUOUS);
             }
             UpdateLabelsText();
-            InformationTextBox.AppendText(Hotspot.Message);
-            AutoScrollTextArea();
         }
 
         private void UpdateLabelsText()
@@ -161,12 +159,6 @@ namespace PortableHotspotWindows
             {
                 ConnectedClientsListBox.Items.Clear();
             }
-        }
-
-        private void AutoScrollTextArea()
-        {
-            InformationTextBox.SelectionStart = InformationTextBox.Text.Length;
-            InformationTextBox.ScrollToCaret();
         }
 
         private void ConnectedUsersTimer_Tick(object sender, EventArgs e)

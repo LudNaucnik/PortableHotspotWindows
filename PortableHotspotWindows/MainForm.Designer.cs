@@ -41,7 +41,6 @@
             this.KeyTextBox = new System.Windows.Forms.TextBox();
             this.MainStatusStripMenu = new System.Windows.Forms.StatusStrip();
             this.StatusConnectionLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.InformationTextBox = new System.Windows.Forms.RichTextBox();
             this.StartStopButton = new System.Windows.Forms.Button();
             this.ConnectedClientsListBox = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -132,7 +131,7 @@
             // 
             this.MainStatusStripMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.StatusConnectionLabel});
-            this.MainStatusStripMenu.Location = new System.Drawing.Point(0, 339);
+            this.MainStatusStripMenu.Location = new System.Drawing.Point(0, 223);
             this.MainStatusStripMenu.Name = "MainStatusStripMenu";
             this.MainStatusStripMenu.Size = new System.Drawing.Size(563, 22);
             this.MainStatusStripMenu.TabIndex = 6;
@@ -143,15 +142,6 @@
             this.StatusConnectionLabel.Name = "StatusConnectionLabel";
             this.StatusConnectionLabel.Size = new System.Drawing.Size(67, 17);
             this.StatusConnectionLabel.Text = "Not Started";
-            // 
-            // InformationTextBox
-            // 
-            this.InformationTextBox.Location = new System.Drawing.Point(20, 222);
-            this.InformationTextBox.Name = "InformationTextBox";
-            this.InformationTextBox.ReadOnly = true;
-            this.InformationTextBox.Size = new System.Drawing.Size(513, 96);
-            this.InformationTextBox.TabIndex = 7;
-            this.InformationTextBox.Text = "";
             // 
             // StartStopButton
             // 
@@ -220,13 +210,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(563, 361);
+            this.ClientSize = new System.Drawing.Size(563, 245);
             this.Controls.Add(this.NumClientsLabel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ConnectedClientsListBox);
             this.Controls.Add(this.StartStopButton);
             this.Controls.Add(this.ShowPassButton);
-            this.Controls.Add(this.InformationTextBox);
             this.Controls.Add(this.MainStatusStripMenu);
             this.Controls.Add(this.KeyTextBox);
             this.Controls.Add(this.SSIDTextBox);
@@ -262,7 +251,6 @@
         private System.Windows.Forms.TextBox KeyTextBox;
         private System.Windows.Forms.StatusStrip MainStatusStripMenu;
         private System.Windows.Forms.ToolStripStatusLabel StatusConnectionLabel;
-        private System.Windows.Forms.RichTextBox InformationTextBox;
         private System.Windows.Forms.Button ShowPassButton;
         private System.Windows.Forms.Button StartStopButton;
         private System.Windows.Forms.ListBox ConnectedClientsListBox;
