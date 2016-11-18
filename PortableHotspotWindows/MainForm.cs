@@ -19,6 +19,7 @@ namespace PortableHotspotWindows
         HotspotClass Hotspot = new HotspotClass();
         NetworkInfoClass NetworkInfo = new NetworkInfoClass();
         Boolean IsNetworkStarted;
+        Boolean ExitButtonClicked = false;
         public const uint ES_CONTINUOUS = 0x80000000;
         public const uint ES_SYSTEM_REQUIRED = 0x00000001;
         [DllImport("kernel32.dll", SetLastError = true)]
@@ -187,22 +188,32 @@ namespace PortableHotspotWindows
 
         private void ExitButton_Click(object sender, EventArgs e)
         {
-            this.Close();
-        }
-
-        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
             DialogResult result = MessageBox.Show("Are You Sure?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
+                ExitButtonClicked = true;
                 LoggerClass.WriteLog("Program Exited");
                 SetThreadExecutionState(ES_CONTINUOUS);
                 Hotspot.Stop();
                 Application.Exit();
             }
-            else
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(ExitButtonClicked != true)
             {
-                e.Cancel = true;
+                DialogResult result = MessageBox.Show("Are You Sure?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    LoggerClass.WriteLog("Program Exited");
+                    SetThreadExecutionState(ES_CONTINUOUS);
+                    Hotspot.Stop();
+                }
+                else
+                {
+                    e.Cancel = true;
+                }
             }
         }
 
