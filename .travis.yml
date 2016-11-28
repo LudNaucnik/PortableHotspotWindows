@@ -1,9 +1,2 @@
 language: csharp
-script:
-  - xbuild /p:Configuration=Debug PortableHotspotWindows.sln
-before_install:
-  - sudo apt-get install nunit-console
-before_script:
-  - nuget restore PortableHotspotWindows.sln
-after_script:
-  - nunit-console Tests/bin/Debug/Tests.dll
+solution: PortableHotspotWindows.sln
