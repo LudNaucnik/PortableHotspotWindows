@@ -109,7 +109,6 @@
     <EmbeddedResource Include="SetNetworkForm.resx">
       <DependentUpon>SetNetworkForm.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include=".travis.yml" />
     <None Include="app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

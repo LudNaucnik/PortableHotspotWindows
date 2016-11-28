@@ -1,4 +1,4 @@
-﻿language: csharp
+language: csharp
 script:
   - xbuild /p:Configuration=Debug PortableHotspotWindows.sln
 before_install:
