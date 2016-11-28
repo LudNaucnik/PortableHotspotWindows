@@ -17,7 +17,7 @@ namespace PortableHotspotWindows
         {
             if (File.Exists(LicencePath) == true)
             {
-                LoggerClass.WriteLog("Licence Deleted");
+                LoggerClass.WriteLogWarning("Licence Deleted");
                 File.Delete(LicencePath);
             }
             File.WriteAllText(LicencePath, CryptographyClass.Encrypt(Key, EncryptionKey));
@@ -36,21 +36,21 @@ namespace PortableHotspotWindows
                     }
                     else
                     {
-                        LoggerClass.WriteLog("Non Valid Licence");
+                        LoggerClass.WriteLogWarning("Non Valid Licence");
                         File.Delete(LicencePath);
                         return false;
                     }
                 }
                 else
                 {
-                    LoggerClass.WriteLog("Non Valid Licence");
+                    LoggerClass.WriteLogWarning("Non Valid Licence");
                     File.Delete(LicencePath);
                     return false;
                 }
             }
             catch (Exception ex)
             {
-                LoggerClass.WriteLog(ex.Message);
+                LoggerClass.WriteLogError(ex.Message);
                 return false;
             }
 

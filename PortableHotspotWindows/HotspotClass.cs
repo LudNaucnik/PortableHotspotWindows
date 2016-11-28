@@ -35,7 +35,7 @@ namespace PortableHotspotWindows
             if (netSharingManager == null)
             {
                 this.Message = "HNetCfg.HNetShare.1 was not found! \n";
-                LoggerClass.WriteLog(Message);
+                LoggerClass.WriteLogError(Message);
                 hasNetSharingManager = true;
             }
             else
@@ -46,7 +46,7 @@ namespace PortableHotspotWindows
             if (netSharingManager.SharingInstalled == false)
             {
                 this.Message = "Sharing on this platform is not available \n";
-                LoggerClass.WriteLog(Message);
+                LoggerClass.WriteLogError(Message);
                 hasNetSharingManager = false;
             }
             else
@@ -89,21 +89,21 @@ namespace PortableHotspotWindows
             Message = "";
             ps.Arguments = "wlan start hosted network";
             Execute(ps);
-            LoggerClass.WriteLog(Message);
+            LoggerClass.WriteLogInformation(Message);
         }
         public void Create(String ssid, String key)
         {
             Message = "";
             ps.Arguments = @"wlan set hostednetwork mode=allow ssid=" + ssid + " key=" + key;
             Execute(ps);
-            LoggerClass.WriteLog(Message);
+            LoggerClass.WriteLogInformation(Message);
         }
         public void Stop()
         {
             Message = "";
             ps.Arguments = "wlan stop hosted network";
             Execute(ps);
-            LoggerClass.WriteLog(Message);
+            LoggerClass.WriteLogInformation(Message);
         }
 
         public NetworkInfoClass GetNetworkInfo()
@@ -153,7 +153,7 @@ namespace PortableHotspotWindows
             }
             if (WriteLog == true)
             {
-                LoggerClass.WriteLog(Message);
+                LoggerClass.WriteLogInformation(Message);
             }
             Message = "";
             ps.Arguments = "wlan show  hostednetwork setting=security";
@@ -168,7 +168,7 @@ namespace PortableHotspotWindows
             }
             if (WriteLog == true)
             {
-                LoggerClass.WriteLog(Message);
+                LoggerClass.WriteLogInformation(Message);
             }
             return Info;
         }
@@ -229,7 +229,7 @@ namespace PortableHotspotWindows
                     }
                 }
             }
-            LoggerClass.WriteLog(Message);
+            LoggerClass.WriteLogInformation(Message);
             if (!hasCon)
             {
                 this.Message += "No connection found!";

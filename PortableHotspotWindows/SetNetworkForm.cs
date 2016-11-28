@@ -40,7 +40,7 @@ namespace PortableHotspotWindows
             try
             {
                 Hotspot.ShareInternet(FromNetworkListComboBox.SelectedItem.ToString(), ToNetworkListComboBox.SelectedItem.ToString(), true);
-                LoggerClass.WriteLog(Hotspot.Message);
+                LoggerClass.WriteLogInformation(Hotspot.Message);
                 MessageBox.Show("Network is Shared", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
