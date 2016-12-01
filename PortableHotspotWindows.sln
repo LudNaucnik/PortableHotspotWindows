@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortableHotspotWindows", "P
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortableHotspotWindows.UnitTest", "PortableHotspotWindows.UnitTest\PortableHotspotWindows.UnitTest.csproj", "{C41756B1-4415-47EC-9C81-CA037FE4ACC8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortableHotspotWindows.CodedUI", "PortableHotspotWindows.CodedUI\PortableHotspotWindows.CodedUI.csproj", "{9BCFE2DD-5399-4055-9114-6900DC407171}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{C41756B1-4415-47EC-9C81-CA037FE4ACC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C41756B1-4415-47EC-9C81-CA037FE4ACC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C41756B1-4415-47EC-9C81-CA037FE4ACC8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9BCFE2DD-5399-4055-9114-6900DC407171}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9BCFE2DD-5399-4055-9114-6900DC407171}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9BCFE2DD-5399-4055-9114-6900DC407171}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9BCFE2DD-5399-4055-9114-6900DC407171}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
