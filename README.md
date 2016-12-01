@@ -1,4 +1,4 @@
-[ ![Codeship Status for LudNaucnik/PortableHotspotWindows](https://app.codeship.com/projects/fdf823f0-97c4-0134-c043-76dae4d5acdd/status?branch=master)](https://app.codeship.com/projects/187200)
+[![Build status](https://ci.appveyor.com/api/projects/status/ms51mfsirtl9oehc?svg=true)](https://ci.appveyor.com/project/LudNaucnik/portablehotspotwindows)
 
 # PortableHotspotWindows
 
