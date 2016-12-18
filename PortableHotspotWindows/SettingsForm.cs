@@ -28,6 +28,9 @@ namespace PortableHotspotWindows
             String jsonSettings = JsonConvert.SerializeObject(NewSettings);
             File.WriteAllText(SettingsPath, jsonSettings);
             MainForm.ReadSettings();
+            UpdateSettings();
+            MessageBox.Show("Settings Saved", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            LoggerClass.WriteLogInformation("Settings Saved");
         }
 
         private void CancelButton_Click(object sender, EventArgs e)
@@ -36,6 +39,11 @@ namespace PortableHotspotWindows
         }
 
         private void SettingsForm_Load(object sender, EventArgs e)
+        {
+            UpdateSettings();
+        }
+
+        public void UpdateSettings()
         {
             EnableLoggingCheckBox.Checked = MainForm.ApplicationSettings.EnableLogging;
         }

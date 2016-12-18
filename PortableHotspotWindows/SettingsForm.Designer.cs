@@ -36,20 +36,20 @@
             // EnableLoggingCheckBox
             // 
             this.EnableLoggingCheckBox.AutoSize = true;
-            this.EnableLoggingCheckBox.Location = new System.Drawing.Point(33, 33);
-            this.EnableLoggingCheckBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.EnableLoggingCheckBox.Location = new System.Drawing.Point(33, 30);
+            this.EnableLoggingCheckBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.EnableLoggingCheckBox.Name = "EnableLoggingCheckBox";
-            this.EnableLoggingCheckBox.Size = new System.Drawing.Size(139, 24);
+            this.EnableLoggingCheckBox.Size = new System.Drawing.Size(137, 22);
             this.EnableLoggingCheckBox.TabIndex = 0;
             this.EnableLoggingCheckBox.Text = "Enable Logging";
             this.EnableLoggingCheckBox.UseVisualStyleBackColor = true;
             // 
             // SaveButton
             // 
-            this.SaveButton.Location = new System.Drawing.Point(22, 83);
-            this.SaveButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.SaveButton.Location = new System.Drawing.Point(22, 75);
+            this.SaveButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.SaveButton.Name = "SaveButton";
-            this.SaveButton.Size = new System.Drawing.Size(120, 40);
+            this.SaveButton.Size = new System.Drawing.Size(120, 36);
             this.SaveButton.TabIndex = 1;
             this.SaveButton.Text = "Save";
             this.SaveButton.UseVisualStyleBackColor = true;
@@ -57,27 +57,28 @@
             // 
             // CancelButton
             // 
-            this.CancelButton.Location = new System.Drawing.Point(167, 83);
-            this.CancelButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.CancelButton.Location = new System.Drawing.Point(167, 75);
+            this.CancelButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(120, 40);
+            this.CancelButton.Size = new System.Drawing.Size(120, 36);
             this.CancelButton.TabIndex = 2;
-            this.CancelButton.Text = "Cancel";
+            this.CancelButton.Text = "Close";
             this.CancelButton.UseVisualStyleBackColor = true;
             this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // SettingsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(321, 156);
+            this.ClientSize = new System.Drawing.Size(321, 140);
             this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.EnableLoggingCheckBox);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Font = new System.Drawing.Font("Arial", 12F);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "SettingsForm";
-            this.Text = "SettingsForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Settings";
             this.Load += new System.EventHandler(this.SettingsForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
