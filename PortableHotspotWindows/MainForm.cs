@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -14,6 +16,9 @@ namespace PortableHotspotWindows
 {
     public partial class MainForm : Form
     {
+        public static Settings ApplicationSettings = new Settings();
+        public static String ApplicationPath = Application.StartupPath + @"\settings.conf";
+        public static Boolean WriteDefaultSettingsBoolean = false;
         SerialOperations.Operations opr = new SerialOperations.Operations();
         SerialKeyIOClass IOkey = new SerialKeyIOClass();
         HotspotClass Hotspot = new HotspotClass();
@@ -31,6 +36,7 @@ namespace PortableHotspotWindows
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            ReadSettings();
             UpdateLabelsText();
             ConnectedUsersTimer.Start();
             ContextMenu NotificationMenu = new ContextMenu();
@@ -242,6 +248,61 @@ namespace PortableHotspotWindows
             frm.ShowDialog();
             this.Show();
             StartStopButton.Focus();
+        }
+
+        public static void ReadSettings()
+        { 
+            try
+            {
+                if(File.Exists(ApplicationPath) == true)
+                {
+                    String JsonSetting = File.ReadAllText(ApplicationPath);
+                    ApplicationSettings = JsonConvert.DeserializeObject<Settings>(JsonSetting);
+                    if(ApplicationSettings.CheckValidSettings != "OK")
+                    {
+                        WriteDefaultSettingsBoolean = true;
+                    }
+                }
+                else
+                {
+                    WriteDefaultSettingsBoolean = true;
+                }
+            }
+            catch(Exception)
+            {
+                LoggerClass.WriteLogError("Cannot Find Setting File");
+                MessageBox.Show("Error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                File.Delete(ApplicationPath);
+                WriteDefaultSettingsBoolean = true;
+            }
+        }
+
+        private void SettingsButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            SettingsForm SettingsForm = new SettingsForm();
+            SettingsForm.ShowDialog();
+            this.Show();
+        }
+
+        public static void WriteDefaultSettings()
+        {
+            Settings DefaultSetting = new Settings();
+            DefaultSetting.EnableLogging = false;
+            DefaultSetting.CheckValidSettings = @"OK";
+            String jsonSettings = JsonConvert.SerializeObject(DefaultSetting);
+            File.WriteAllText(ApplicationPath, jsonSettings);
+            ApplicationSettings = DefaultSetting;
+            WriteDefaultSettingsBoolean = false;
+        }
+
+        protected override void OnShown(EventArgs e)
+        {
+            if(WriteDefaultSettingsBoolean == true)
+            {
+                WriteDefaultSettings();
+                ReadSettings();
+            }
         }
     }
 }

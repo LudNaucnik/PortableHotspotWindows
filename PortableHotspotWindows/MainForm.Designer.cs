@@ -48,6 +48,7 @@
             this.ConnectedUsersTimer = new System.Windows.Forms.Timer(this.components);
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.ShowPassButton = new System.Windows.Forms.Button();
+            this.SettingsButton = new System.Windows.Forms.ToolStripMenuItem();
             this.MainMenuStripMenu.SuspendLayout();
             this.MainStatusStripMenu.SuspendLayout();
             this.SuspendLayout();
@@ -57,6 +58,7 @@
             this.MainMenuStripMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.SetNetworkButton,
             this.RegisterButton,
+            this.SettingsButton,
             this.AboutButton,
             this.ExitButton});
             this.MainMenuStripMenu.Location = new System.Drawing.Point(0, 0);
@@ -206,6 +208,13 @@
             this.ShowPassButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ShowPassButton_MouseDown);
             this.ShowPassButton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ShowPassButton_MouseUp);
             // 
+            // SettingsButton
+            // 
+            this.SettingsButton.Name = "SettingsButton";
+            this.SettingsButton.Size = new System.Drawing.Size(61, 20);
+            this.SettingsButton.Text = "Settings";
+            this.SettingsButton.Click += new System.EventHandler(this.SettingsButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -259,6 +268,7 @@
         private System.Windows.Forms.Timer ConnectedUsersTimer;
         private System.Windows.Forms.ToolStripMenuItem RegisterButton;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
+        private System.Windows.Forms.ToolStripMenuItem SettingsButton;
     }
 }
 
