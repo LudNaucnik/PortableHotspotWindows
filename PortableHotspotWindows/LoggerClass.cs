@@ -14,7 +14,7 @@ namespace PortableHotspotWindows
         static String sSource = @"PortableHotspotWindows";
         static String sLog = @"Application";
         static String FilePath = Application.StartupPath + @"\log.txt";
-        static String BreakPoint = @"---------------------------------------------------=----";
+        static String BreakPoint = @"--------------------------------------------------------";
         public static void WriteLogInformation(String sEvent)
         {
             if (MainForm.ApplicationSettings.EnableLogging == true)
