@@ -10,5 +10,6 @@ namespace PortableHotspotWindows
     {
         public String CheckValidSettings { get; set; }
         public Boolean EnableLogging { get; set; }
+        public Boolean StartHotspotAutomatically { get; set; }
     }
 }

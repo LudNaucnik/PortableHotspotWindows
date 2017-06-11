@@ -31,12 +31,13 @@
             this.EnableLoggingCheckBox = new System.Windows.Forms.CheckBox();
             this.SaveButton = new System.Windows.Forms.Button();
             this.CancelButtonSettings = new System.Windows.Forms.Button();
+            this.StartHotspotAutomaticallyCheckBox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // EnableLoggingCheckBox
             // 
             this.EnableLoggingCheckBox.AutoSize = true;
-            this.EnableLoggingCheckBox.Location = new System.Drawing.Point(33, 30);
+            this.EnableLoggingCheckBox.Location = new System.Drawing.Point(35, 66);
             this.EnableLoggingCheckBox.Margin = new System.Windows.Forms.Padding(4);
             this.EnableLoggingCheckBox.Name = "EnableLoggingCheckBox";
             this.EnableLoggingCheckBox.Size = new System.Drawing.Size(137, 22);
@@ -46,7 +47,7 @@
             // 
             // SaveButton
             // 
-            this.SaveButton.Location = new System.Drawing.Point(22, 75);
+            this.SaveButton.Location = new System.Drawing.Point(24, 111);
             this.SaveButton.Margin = new System.Windows.Forms.Padding(4);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(120, 36);
@@ -57,7 +58,7 @@
             // 
             // CancelButtonSettings
             // 
-            this.CancelButtonSettings.Location = new System.Drawing.Point(167, 75);
+            this.CancelButtonSettings.Location = new System.Drawing.Point(169, 111);
             this.CancelButtonSettings.Margin = new System.Windows.Forms.Padding(4);
             this.CancelButtonSettings.Name = "CancelButtonSettings";
             this.CancelButtonSettings.Size = new System.Drawing.Size(120, 36);
@@ -66,11 +67,23 @@
             this.CancelButtonSettings.UseVisualStyleBackColor = true;
             this.CancelButtonSettings.Click += new System.EventHandler(this.CancelButton_Click);
             // 
+            // StartHotspotAutomaticallyCheckBox
+            // 
+            this.StartHotspotAutomaticallyCheckBox.AutoSize = true;
+            this.StartHotspotAutomaticallyCheckBox.Location = new System.Drawing.Point(35, 36);
+            this.StartHotspotAutomaticallyCheckBox.Margin = new System.Windows.Forms.Padding(4);
+            this.StartHotspotAutomaticallyCheckBox.Name = "StartHotspotAutomaticallyCheckBox";
+            this.StartHotspotAutomaticallyCheckBox.Size = new System.Drawing.Size(213, 22);
+            this.StartHotspotAutomaticallyCheckBox.TabIndex = 3;
+            this.StartHotspotAutomaticallyCheckBox.Text = "Start Hotspot Automatically";
+            this.StartHotspotAutomaticallyCheckBox.UseVisualStyleBackColor = true;
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(321, 140);
+            this.ClientSize = new System.Drawing.Size(321, 167);
+            this.Controls.Add(this.StartHotspotAutomaticallyCheckBox);
             this.Controls.Add(this.CancelButtonSettings);
             this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.EnableLoggingCheckBox);
@@ -90,5 +103,6 @@
         private System.Windows.Forms.CheckBox EnableLoggingCheckBox;
         private System.Windows.Forms.Button SaveButton;
         private System.Windows.Forms.Button CancelButtonSettings;
+        private System.Windows.Forms.CheckBox StartHotspotAutomaticallyCheckBox;
     }
 }

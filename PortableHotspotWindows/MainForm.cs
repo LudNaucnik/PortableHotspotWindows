@@ -181,7 +181,7 @@ namespace PortableHotspotWindows
             {
                 notifyIcon1.Visible = true;
                 notifyIcon1.BalloonTipText = NetworkInfo.SSID + " " + NetworkInfo.NetworkStatus;
-                notifyIcon1.ShowBalloonTip(3000);
+                notifyIcon1.ShowBalloonTip(2000);
                 this.ShowInTaskbar = false;
             }
         }
@@ -289,6 +289,7 @@ namespace PortableHotspotWindows
         {
             Settings DefaultSetting = new Settings();
             DefaultSetting.EnableLogging = false;
+            DefaultSetting.StartHotspotAutomatically = false;
             DefaultSetting.CheckValidSettings = @"OK";
             String jsonSettings = JsonConvert.SerializeObject(DefaultSetting);
             File.WriteAllText(ApplicationPath, jsonSettings);
@@ -302,6 +303,10 @@ namespace PortableHotspotWindows
             {
                 WriteDefaultSettings();
                 ReadSettings();
+            }
+            if(MainForm.ApplicationSettings.StartHotspotAutomatically == true)
+            {
+                StartStopButton.PerformClick();
             }
         }
     }

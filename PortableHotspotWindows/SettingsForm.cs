@@ -23,7 +23,9 @@ namespace PortableHotspotWindows
         private void SaveButton_Click(object sender, EventArgs e)
         {
             Settings NewSettings = new Settings();
+            NewSettings.CheckValidSettings = @"OK";
             NewSettings.EnableLogging = EnableLoggingCheckBox.Checked;
+            NewSettings.StartHotspotAutomatically = StartHotspotAutomaticallyCheckBox.Checked;
             File.Delete(SettingsPath);
             String jsonSettings = JsonConvert.SerializeObject(NewSettings);
             File.WriteAllText(SettingsPath, jsonSettings);
@@ -46,6 +48,8 @@ namespace PortableHotspotWindows
         public void UpdateSettings()
         {
             EnableLoggingCheckBox.Checked = MainForm.ApplicationSettings.EnableLogging;
+            StartHotspotAutomaticallyCheckBox.Checked = MainForm.ApplicationSettings.StartHotspotAutomatically;
+
         }
     }
 }
