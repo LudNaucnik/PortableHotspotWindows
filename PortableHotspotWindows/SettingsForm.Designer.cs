@@ -39,7 +39,7 @@
             // EnableLoggingCheckBox
             // 
             this.EnableLoggingCheckBox.AutoSize = true;
-            this.EnableLoggingCheckBox.Location = new System.Drawing.Point(34, 114);
+            this.EnableLoggingCheckBox.Location = new System.Drawing.Point(52, 120);
             this.EnableLoggingCheckBox.Margin = new System.Windows.Forms.Padding(4);
             this.EnableLoggingCheckBox.Name = "EnableLoggingCheckBox";
             this.EnableLoggingCheckBox.Size = new System.Drawing.Size(131, 22);
@@ -49,7 +49,7 @@
             // 
             // SaveButton
             // 
-            this.SaveButton.Location = new System.Drawing.Point(23, 159);
+            this.SaveButton.Location = new System.Drawing.Point(41, 165);
             this.SaveButton.Margin = new System.Windows.Forms.Padding(4);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(120, 36);
@@ -60,7 +60,7 @@
             // 
             // CancelButtonSettings
             // 
-            this.CancelButtonSettings.Location = new System.Drawing.Point(168, 159);
+            this.CancelButtonSettings.Location = new System.Drawing.Point(186, 165);
             this.CancelButtonSettings.Margin = new System.Windows.Forms.Padding(4);
             this.CancelButtonSettings.Name = "CancelButtonSettings";
             this.CancelButtonSettings.Size = new System.Drawing.Size(120, 36);
@@ -72,7 +72,7 @@
             // StartHotspotAutomaticallyCheckBox
             // 
             this.StartHotspotAutomaticallyCheckBox.AutoSize = true;
-            this.StartHotspotAutomaticallyCheckBox.Location = new System.Drawing.Point(34, 84);
+            this.StartHotspotAutomaticallyCheckBox.Location = new System.Drawing.Point(52, 90);
             this.StartHotspotAutomaticallyCheckBox.Margin = new System.Windows.Forms.Padding(4);
             this.StartHotspotAutomaticallyCheckBox.Name = "StartHotspotAutomaticallyCheckBox";
             this.StartHotspotAutomaticallyCheckBox.Size = new System.Drawing.Size(233, 22);
@@ -83,7 +83,7 @@
             // StartMinimizedCheckBox
             // 
             this.StartMinimizedCheckBox.AutoSize = true;
-            this.StartMinimizedCheckBox.Location = new System.Drawing.Point(34, 24);
+            this.StartMinimizedCheckBox.Location = new System.Drawing.Point(52, 30);
             this.StartMinimizedCheckBox.Margin = new System.Windows.Forms.Padding(4);
             this.StartMinimizedCheckBox.Name = "StartMinimizedCheckBox";
             this.StartMinimizedCheckBox.Size = new System.Drawing.Size(118, 22);
@@ -94,7 +94,7 @@
             // ShowMessageMinimizedCheckBox
             // 
             this.ShowMessageMinimizedCheckBox.AutoSize = true;
-            this.ShowMessageMinimizedCheckBox.Location = new System.Drawing.Point(34, 54);
+            this.ShowMessageMinimizedCheckBox.Location = new System.Drawing.Point(52, 60);
             this.ShowMessageMinimizedCheckBox.Margin = new System.Windows.Forms.Padding(4);
             this.ShowMessageMinimizedCheckBox.Name = "ShowMessageMinimizedCheckBox";
             this.ShowMessageMinimizedCheckBox.Size = new System.Drawing.Size(250, 22);
@@ -106,7 +106,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(321, 221);
+            this.ClientSize = new System.Drawing.Size(346, 228);
             this.Controls.Add(this.ShowMessageMinimizedCheckBox);
             this.Controls.Add(this.StartMinimizedCheckBox);
             this.Controls.Add(this.StartHotspotAutomaticallyCheckBox);
