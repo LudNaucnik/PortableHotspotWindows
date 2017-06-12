@@ -64,7 +64,7 @@ namespace PortableHotspotWindows
                 LoggerClass.WriteLogInformation("Licence Verified" + Environment.NewLine + "Program Started");
                 RegisterButton.Visible = false;
             }
-            if(NetworkInfo.NetworkStatus == "Started")
+            if (NetworkInfo.NetworkStatus == "Started")
             {
                 LoggerClass.WriteLogInformation("Hotspot Started");
             }
@@ -180,8 +180,11 @@ namespace PortableHotspotWindows
             if (this.WindowState == FormWindowState.Minimized)
             {
                 notifyIcon1.Visible = true;
-                notifyIcon1.BalloonTipText = NetworkInfo.SSID + " " + NetworkInfo.NetworkStatus;
-                notifyIcon1.ShowBalloonTip(2000);
+                if (MainForm.ApplicationSettings.ShowMessageMinimized == true)
+                {
+                    notifyIcon1.BalloonTipText = NetworkInfo.SSID + " " + NetworkInfo.NetworkStatus;
+                    notifyIcon1.ShowBalloonTip(1000);
+                }                
                 this.ShowInTaskbar = false;
             }
         }
@@ -208,7 +211,7 @@ namespace PortableHotspotWindows
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if(ExitButtonClicked != true)
+            if (ExitButtonClicked != true)
             {
                 DialogResult result = MessageBox.Show("Are You Sure?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
@@ -251,14 +254,14 @@ namespace PortableHotspotWindows
         }
 
         public static void ReadSettings()
-        { 
+        {
             try
             {
-                if(File.Exists(ApplicationPath) == true)
+                if (File.Exists(ApplicationPath) == true)
                 {
                     String JsonSetting = File.ReadAllText(ApplicationPath);
                     ApplicationSettings = JsonConvert.DeserializeObject<Settings>(JsonSetting);
-                    if(ApplicationSettings.CheckValidSettings != "OK")
+                    if (ApplicationSettings.CheckValidSettings != "OK")
                     {
                         WriteDefaultSettingsBoolean = true;
                     }
@@ -268,7 +271,7 @@ namespace PortableHotspotWindows
                     WriteDefaultSettingsBoolean = true;
                 }
             }
-            catch(Exception)
+            catch (Exception)
             {
                 LoggerClass.WriteLogError("Cannot Find Setting File");
                 MessageBox.Show("Error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -290,6 +293,8 @@ namespace PortableHotspotWindows
             Settings DefaultSetting = new Settings();
             DefaultSetting.EnableLogging = false;
             DefaultSetting.StartHotspotAutomatically = false;
+            DefaultSetting.StartMinimized = false;
+            DefaultSetting.ShowMessageMinimized = true;
             DefaultSetting.CheckValidSettings = @"OK";
             String jsonSettings = JsonConvert.SerializeObject(DefaultSetting);
             File.WriteAllText(ApplicationPath, jsonSettings);
@@ -299,14 +304,18 @@ namespace PortableHotspotWindows
 
         protected override void OnShown(EventArgs e)
         {
-            if(WriteDefaultSettingsBoolean == true)
+            if (WriteDefaultSettingsBoolean == true)
             {
                 WriteDefaultSettings();
                 ReadSettings();
             }
-            if(MainForm.ApplicationSettings.StartHotspotAutomatically == true)
+            if (MainForm.ApplicationSettings.StartHotspotAutomatically == true)
             {
                 StartStopButton.PerformClick();
+            }
+            if (MainForm.ApplicationSettings.StartMinimized == true)
+            {
+                this.WindowState = FormWindowState.Minimized;
             }
         }
     }

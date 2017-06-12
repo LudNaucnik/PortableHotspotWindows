@@ -26,6 +26,8 @@ namespace PortableHotspotWindows
             NewSettings.CheckValidSettings = @"OK";
             NewSettings.EnableLogging = EnableLoggingCheckBox.Checked;
             NewSettings.StartHotspotAutomatically = StartHotspotAutomaticallyCheckBox.Checked;
+            NewSettings.StartMinimized = StartMinimizedCheckBox.Checked;
+            NewSettings.ShowMessageMinimized = ShowMessageMinimizedCheckBox.Checked;
             File.Delete(SettingsPath);
             String jsonSettings = JsonConvert.SerializeObject(NewSettings);
             File.WriteAllText(SettingsPath, jsonSettings);
@@ -49,7 +51,8 @@ namespace PortableHotspotWindows
         {
             EnableLoggingCheckBox.Checked = MainForm.ApplicationSettings.EnableLogging;
             StartHotspotAutomaticallyCheckBox.Checked = MainForm.ApplicationSettings.StartHotspotAutomatically;
-
+            StartMinimizedCheckBox.Checked = MainForm.ApplicationSettings.StartMinimized;
+            ShowMessageMinimizedCheckBox.Checked = MainForm.ApplicationSettings.ShowMessageMinimized;
         }
     }
 }
